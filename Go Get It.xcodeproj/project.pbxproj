@@ -129,15 +129,6 @@
 			path = "Create Reminder";
 			sourceTree = "<group>";
 		};
-		7E15DE482A3D24A200CBA1B6 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7E15DE472A3D245A00CBA1B6 /* Create Reminder */,
-				7E5A69C92A3BFA7A00381A17 /* Create Activity */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		7E15DE492A3D24C900CBA1B6 /* Main Tab */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				7E5A69CA2A3BFA9F00381A17 /* CreateActivityViewController.swift */,
-				7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */,
 			);
 			path = "Create Activity";
 			sourceTree = "<group>";
@@ -204,6 +194,9 @@
 			isa = PBXGroup;
 			children = (
 				7E70543E2A38D6850074D13A /* Extensions */,
+				7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */,
+				7E5A69C92A3BFA7A00381A17 /* Create Activity */,
+				7E15DE472A3D245A00CBA1B6 /* Create Reminder */,
 				7E15DE492A3D24C900CBA1B6 /* Main Tab */,
 				7E5A69CF2A3BFB6B00381A17 /* Workout Stats */,
 				7E5A69CC2A3BFAC200381A17 /* Activities */,
@@ -296,7 +289,6 @@
 		7EA8D0892A390AB200C9C1B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				7E15DE482A3D24A200CBA1B6 /* View Controllers */,
 				7E5A69BC2A3AB73B00381A17 /* Views */,
 				7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */,
 			);
