@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "healthicons_heart-cardiogram.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "healthicons_heart-cardiogram@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "healthicons_heart-cardiogram@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
