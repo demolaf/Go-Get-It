@@ -14,6 +14,7 @@ class OnboardingPageViewController: UIPageViewController {
         OnboardingInfoList.data.forEach { onboardingInfo in
             let vc = storyboard?.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
             vc.onboardingData = onboardingInfo
+            vc.pageViewController = self
             viewControllers.append(vc)
         }
         
@@ -28,6 +29,20 @@ class OnboardingPageViewController: UIPageViewController {
         dataSource = self
         
         self.setViewControllers([onboardingViewControllers.first!], direction: .forward, animated: true)
+    }
+    
+    func goToNextPage(currentPage: Int) {
+        print("Go to next page called")
+        
+        let vcs = onboardingViewControllers
+        //or self.viewControllers
+        let currentPage = currentPage
+        let nextPage = currentPage + 1
+
+        if nextPage < vcs.count {
+            let nextVC = vcs[nextPage]
+            self.setViewControllers([nextVC], direction: .forward, animated: true)
+        }
     }
 }
 

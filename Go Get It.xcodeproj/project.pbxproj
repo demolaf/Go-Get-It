@@ -14,7 +14,7 @@
 		7E5A69C22A3AB81E00381A17 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69C12A3AB81E00381A17 /* CircleView.swift */; };
 		7E5A69C62A3B960000381A17 /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69C52A3B960000381A17 /* RemindersTableViewCell.swift */; };
 		7E5A69CB2A3BFA9F00381A17 /* CreateActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CA2A3BFA9F00381A17 /* CreateActivityViewController.swift */; };
-		7E5A69CE2A3BFB3700381A17 /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CD2A3BFB3700381A17 /* ActivitiesViewController.swift */; };
+		7E5A69CE2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */; };
 		7E5A69D12A3BFB7F00381A17 /* WorkoutStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69D02A3BFB7F00381A17 /* WorkoutStatsViewController.swift */; };
 		7E5BB70F2A3E1BD90038D787 /* CreateProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */; };
 		7E70542B2A387E4B0074D13A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E70542A2A387E4B0074D13A /* Colors.xcassets */; };
@@ -29,6 +29,9 @@
 		7E86524D2A3424BE00E6CD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E86524B2A3424BE00E6CD03 /* Main.storyboard */; };
 		7E86524F2A3424BF00E6CD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E86524E2A3424BF00E6CD03 /* Assets.xcassets */; };
 		7E8652522A3424BF00E6CD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E8652502A3424BF00E6CD03 /* LaunchScreen.storyboard */; };
+		7E95AD9B2A4108080044390F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7E95AD9A2A4108080044390F /* GoogleSignIn */; };
+		7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */; };
+		7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */; };
 		7E98DD9F2A3AA0E90080E33A /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E98DD9E2A3AA0E90080E33A /* MainTabViewController.swift */; };
 		7EA8D0772A38E93E00C9C1B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA8D0762A38E93E00C9C1B6 /* LoginViewController.swift */; };
 		7EA8D0792A38EEFF00C9C1B6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */; };
@@ -56,7 +59,7 @@
 		7E5A69C12A3AB81E00381A17 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		7E5A69C52A3B960000381A17 /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
 		7E5A69CA2A3BFA9F00381A17 /* CreateActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityViewController.swift; sourceTree = "<group>"; };
-		7E5A69CD2A3BFB3700381A17 /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesHistoryViewController.swift; sourceTree = "<group>"; };
 		7E5A69D02A3BFB7F00381A17 /* WorkoutStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStatsViewController.swift; sourceTree = "<group>"; };
 		7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProgramsViewController.swift; sourceTree = "<group>"; };
 		7E70542A2A387E4B0074D13A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 		7E86524E2A3424BF00E6CD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E8652512A3424BF00E6CD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E8652532A3424BF00E6CD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
+		7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		7E98DD9E2A3AA0E90080E33A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		7EA8D0762A38E93E00C9C1B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -96,6 +101,7 @@
 				7EA8D0882A38F1DD00C9C1B6 /* FirebaseStorage in Frameworks */,
 				7EA8D0822A38F1DD00C9C1B6 /* FirebaseFirestore in Frameworks */,
 				010C894B1EB86C9ADBF947D5 /* Pods_Go_Get_It.framework in Frameworks */,
+				7E95AD9B2A4108080044390F /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,12 +162,12 @@
 			path = "Create Activity";
 			sourceTree = "<group>";
 		};
-		7E5A69CC2A3BFAC200381A17 /* Activities */ = {
+		7E5A69CC2A3BFAC200381A17 /* Activities History */ = {
 			isa = PBXGroup;
 			children = (
-				7E5A69CD2A3BFB3700381A17 /* ActivitiesViewController.swift */,
+				7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */,
 			);
-			path = Activities;
+			path = "Activities History";
 			sourceTree = "<group>";
 		};
 		7E5A69CF2A3BFB6B00381A17 /* Workout Stats */ = {
@@ -184,8 +190,7 @@
 		7E7054302A38A0250074D13A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7E7054342A38B8630074D13A /* OnboardingData.swift */,
-				7E70543B2A38C16A0074D13A /* OnboardingInfoList.swift */,
+				7E95AD9C2A410EF90044390F /* Onboarding Info */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,10 +202,10 @@
 				7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */,
 				7E5A69C92A3BFA7A00381A17 /* Create Activity */,
 				7E15DE472A3D245A00CBA1B6 /* Create Reminder */,
-				7E15DE492A3D24C900CBA1B6 /* Main Tab */,
 				7E5A69CF2A3BFB6B00381A17 /* Workout Stats */,
-				7E5A69CC2A3BFAC200381A17 /* Activities */,
+				7E5A69CC2A3BFAC200381A17 /* Activities History */,
 				7EA8D0892A390AB200C9C1B6 /* Home */,
+				7E15DE492A3D24C900CBA1B6 /* Main Tab */,
 				7EA8D0752A38E93400C9C1B6 /* Login */,
 				7E70543D2A38D6620074D13A /* Onboarding */,
 			);
@@ -265,17 +270,60 @@
 		7E8652442A3424BE00E6CD03 /* Go Get It */ = {
 			isa = PBXGroup;
 			children = (
-				7E7054302A38A0250074D13A /* Model */,
+				7E95ADA52A41183F0044390F /* Application */,
+				7E95AD9D2A4111090044390F /* Data */,
 				7E7054332A38A0720074D13A /* Assets */,
 				7E7054312A38A0350074D13A /* View Controllers */,
-				7E8652452A3424BE00E6CD03 /* AppDelegate.swift */,
-				7E8652472A3424BE00E6CD03 /* SceneDelegate.swift */,
-				7E86524B2A3424BE00E6CD03 /* Main.storyboard */,
-				7E8652502A3424BF00E6CD03 /* LaunchScreen.storyboard */,
 				7E8652532A3424BF00E6CD03 /* Info.plist */,
 				7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */,
 			);
 			path = "Go Get It";
+			sourceTree = "<group>";
+		};
+		7E95AD9C2A410EF90044390F /* Onboarding Info */ = {
+			isa = PBXGroup;
+			children = (
+				7E7054342A38B8630074D13A /* OnboardingData.swift */,
+				7E70543B2A38C16A0074D13A /* OnboardingInfoList.swift */,
+			);
+			path = "Onboarding Info";
+			sourceTree = "<group>";
+		};
+		7E95AD9D2A4111090044390F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7E95AD9F2A41117B0044390F /* Repositories */,
+				7E7054302A38A0250074D13A /* Model */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7E95AD9E2A4111100044390F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */,
+				7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7E95AD9F2A41117B0044390F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7E95AD9E2A4111100044390F /* Auth */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7E95ADA52A41183F0044390F /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7E86524B2A3424BE00E6CD03 /* Main.storyboard */,
+				7E8652502A3424BF00E6CD03 /* LaunchScreen.storyboard */,
+				7E8652452A3424BE00E6CD03 /* AppDelegate.swift */,
+				7E8652472A3424BE00E6CD03 /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		7EA8D0752A38E93400C9C1B6 /* Login */ = {
@@ -321,6 +369,7 @@
 				7EA8D0832A38F1DD00C9C1B6 /* FirebasePerformance */,
 				7EA8D0852A38F1DD00C9C1B6 /* FirebaseRemoteConfig */,
 				7EA8D0872A38F1DD00C9C1B6 /* FirebaseStorage */,
+				7E95AD9A2A4108080044390F /* GoogleSignIn */,
 			);
 			productName = gogogetit;
 			productReference = 7E8652422A3424BE00E6CD03 /* Go Get It.app */;
@@ -352,6 +401,7 @@
 			mainGroup = 7E8652392A3424BD00E6CD03;
 			packageReferences = (
 				7EA8D07A2A38F1DD00C9C1B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				7E95AD992A4108080044390F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			productRefGroup = 7E8652432A3424BE00E6CD03 /* Products */;
 			projectDirPath = "";
@@ -441,10 +491,12 @@
 				7E8652462A3424BE00E6CD03 /* AppDelegate.swift in Sources */,
 				7E70543A2A38BC080074D13A /* Images.swift in Sources */,
 				7E70542F2A3899B60074D13A /* OnboardingPageViewController.swift in Sources */,
-				7E5A69CE2A3BFB3700381A17 /* ActivitiesViewController.swift in Sources */,
+				7E5A69CE2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift in Sources */,
 				7E8652482A3424BE00E6CD03 /* SceneDelegate.swift in Sources */,
+				7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */,
 				7E5A69C62A3B960000381A17 /* RemindersTableViewCell.swift in Sources */,
 				7EA8D08B2A390ABC00C9C1B6 /* HomeViewController.swift in Sources */,
+				7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */,
 				7E70543C2A38C16A0074D13A /* OnboardingInfoList.swift in Sources */,
 				7E5BB70F2A3E1BD90038D787 /* CreateProgramsViewController.swift in Sources */,
 			);
@@ -600,7 +652,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -629,7 +681,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -668,6 +720,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7E95AD992A4108080044390F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		7EA8D07A2A38F1DD00C9C1B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -679,6 +739,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7E95AD9A2A4108080044390F /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7E95AD992A4108080044390F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
 		7EA8D07B2A38F1DD00C9C1B6 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7EA8D07A2A38F1DD00C9C1B6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

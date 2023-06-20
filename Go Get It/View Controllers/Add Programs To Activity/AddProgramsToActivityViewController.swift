@@ -19,7 +19,7 @@ class AddProgramsToActivityViewController: UIViewController {
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1/1).isActive = true
         imageView.image = Images.upperBodyIcon?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = .white
-
+        
         let text = "Chest Day"
         
         let titleRange = text.range(of: text)!
@@ -27,11 +27,11 @@ class AddProgramsToActivityViewController: UIViewController {
         let attributedString = NSMutableAttributedString(string: text)
         
         attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium)], range: NSRange(titleRange, in: text))
-
+        
         let textLabel = UILabel()
         textLabel.attributedText  = attributedString
         textLabel.textAlignment = .center
-
+        
         //Stack View
         let stackView   = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -40,20 +40,23 @@ class AddProgramsToActivityViewController: UIViewController {
         stackView.alignment = UIStackView.Alignment.center
         stackView.spacing = 12.0
         stackView.heightAnchor.constraint(equalToConstant: 24).isActive = true
-
-
+        
+        
         stackView.addArrangedSubview(imageView)
         stackView.addArrangedSubview(textLabel)
-
-        self.navigationItem.titleView = stackView
         
-        navigationController?.isNavigationBarHidden = false
         navigationItem.titleView = stackView
-    
-        self.navigationController?.navigationBar.backItem?.title = ""
-        self.navigationController?.navigationBar.tintColor = .white
+        
+        navigationController?.navigationBar.backItem?.title = ""
+        navigationController?.navigationBar.tintColor = .white
         
         postInit()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.isNavigationBarHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -70,7 +73,7 @@ class AddProgramsToActivityViewController: UIViewController {
         print("Create program button pressed")
         
         let createProgramsVC = storyboard?.instantiateViewController(withIdentifier: "CreateProgramsViewController") as! CreateProgramsViewController
-
+        
         present(createProgramsVC, animated: true)
     }
 }
@@ -83,6 +86,9 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
         programsTableView.delegate = self
         programsTableView.dataSource = self
         
+        programsTableView.register(MyCustomHeader.self,
+                                   forHeaderFooterViewReuseIdentifier: "ProgramsSection")
+        
         setupViewAppearance()
     }
     
@@ -94,8 +100,20 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     
     // MARK: Reminders Delegate & Datasource
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProgramsSection") as! MyCustomHeader
+        
+        let text = "Programs"
+        let titleRange = text.range(of: text)!
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+        view.title.attributedText = attributedString
+        
+        return view
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,6 +128,38 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
         cell.contentConfiguration = configuration
         
         return cell
+    }
+}
+
+class MyCustomHeader: UITableViewHeaderFooterView {
+    let title = UILabel()
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        configureContents()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        configureContents()
+    }
+    
+    
+    func configureContents() {
+        title.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Stack View
+        let stackView   = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis  = .horizontal
+        stackView.distribution  = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = 12.0
+        
+        stackView.addArrangedSubview(title)
+        
+        contentView.addSubview(stackView)
+        contentView.backgroundColor = .white
     }
 }
 

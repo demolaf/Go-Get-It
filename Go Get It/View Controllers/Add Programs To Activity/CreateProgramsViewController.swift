@@ -26,7 +26,7 @@ class CreateProgramsViewController: UIViewController {
             }
     }
     
-    @IBAction func doneButtonPressed(_ sender: UIButton) {
+    @IBAction func addButtonPressed(_ sender: UIButton) {
         print("Done button pressed")
         
         dismiss(animated: true)
