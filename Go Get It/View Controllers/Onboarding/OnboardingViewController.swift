@@ -39,6 +39,8 @@ class OnboardingViewController: UIViewController {
     @IBAction func ctaButtonPressed(_ sender: UIButton) {
         let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         navigationController?.pushViewController(loginVC, animated: true)
+        
+        
     }
     
     @IBAction func skipButtonPressed(_ sender: UIButton) {
@@ -54,16 +56,3 @@ class OnboardingViewController: UIViewController {
         pageViewController.goToNextPage(currentPage: onboardingPageControl.currentPage)
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct OnboardingViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        // view controller using programmatic UI
-        // Assuming your storyboard file name is "Main"
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "OnboardingViewController").showPreview()
-    }
-}
-#endif

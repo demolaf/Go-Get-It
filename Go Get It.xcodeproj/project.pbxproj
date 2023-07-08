@@ -11,11 +11,39 @@
 		7E15DE4B2A3D252900CBA1B6 /* CreateReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15DE4A2A3D252900CBA1B6 /* CreateReminderViewController.swift */; };
 		7E15DE4D2A3D259200CBA1B6 /* CustomSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15DE4C2A3D259200CBA1B6 /* CustomSwitchView.swift */; };
 		7E15DE4F2A3D3FF700CBA1B6 /* AddProgramsToActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15DE4E2A3D3FF700CBA1B6 /* AddProgramsToActivityViewController.swift */; };
+		7E2063642A56CC74007FBCB0 /* TableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2063632A56CC74007FBCB0 /* TableView+Extensions.swift */; };
+		7E2063682A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2063672A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift */; };
+		7E20636C2A572B0A007FBCB0 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E20636A2A572B0A007FBCB0 /* CustomCollectionViewCell.swift */; };
+		7E20636D2A572B0A007FBCB0 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E20636B2A572B0A007FBCB0 /* CustomCollectionViewCell.xib */; };
+		7E2063792A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2063772A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.swift */; };
+		7E20637A2A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E2063782A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.xib */; };
+		7E219EAA2A58CADA008D2396 /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EA92A58CADA008D2396 /* NutritionViewController.swift */; };
+		7E219EAD2A58E5D9008D2396 /* ExploreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EAC2A58E5D9008D2396 /* ExploreTableViewCell.swift */; };
+		7E219EB02A58EA9A008D2396 /* ExploreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EAF2A58EA9A008D2396 /* ExploreRepository.swift */; };
+		7E219EB22A58EAAE008D2396 /* ExploreRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EB12A58EAAE008D2396 /* ExploreRepositoryImpl.swift */; };
+		7E219EB52A58EAE0008D2396 /* ExploreListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EB42A58EAE0008D2396 /* ExploreListDataModel.swift */; };
+		7E219EB72A59007E008D2396 /* ExercisesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EB62A59007E008D2396 /* ExercisesListViewController.swift */; };
+		7E219EBA2A59A18D008D2396 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EB92A59A18D008D2396 /* APIConstants.swift */; };
+		7E219EBD2A59A2BA008D2396 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EBC2A59A2BA008D2396 /* APIClient.swift */; };
+		7E219EBF2A59A2CA008D2396 /* APIClientImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EBE2A59A2CA008D2396 /* APIClientImpl.swift */; };
+		7E219EC32A59AE53008D2396 /* ExploreAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EC22A59AE53008D2396 /* ExploreAPI.swift */; };
+		7E219EC82A59B79B008D2396 /* ExercisesBodyPartListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EC72A59B79B008D2396 /* ExercisesBodyPartListResponse.swift */; };
+		7E219ECA2A59B96B008D2396 /* ExerciseForBodyPartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EC92A59B96B008D2396 /* ExerciseForBodyPartResponse.swift */; };
+		7E219ECC2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ECB2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift */; };
+		7E219ED22A59F77A008D2396 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ED12A59F77A008D2396 /* UIImage+Gif.swift */; };
+		7E567BF62A54AC1600A67D8B /* ActivityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BF52A54AC1600A67D8B /* ActivityDataModel.swift */; };
+		7E567BF92A54ACA800A67D8B /* ProgramDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BF82A54ACA800A67D8B /* ProgramDataModel.swift */; };
+		7E567BFB2A54AD8D00A67D8B /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BFA2A54AD8D00A67D8B /* ActivityType.swift */; };
+		7E567BFD2A54ADA200A67D8B /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BFC2A54ADA200A67D8B /* ActivityModel.swift */; };
+		7E567C002A54AF1B00A67D8B /* DailyReminderDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BFF2A54AF1B00A67D8B /* DailyReminderDataModel.swift */; };
+		7E567C032A54B4A400A67D8B /* ActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567C022A54B4A400A67D8B /* ActivityRepository.swift */; };
+		7E567C052A54B97B00A67D8B /* ActivityRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567C042A54B97B00A67D8B /* ActivityRepositoryImpl.swift */; };
+		7E567C092A54D75600A67D8B /* GoGetIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E567C072A54D75600A67D8B /* GoGetIt.xcdatamodeld */; };
 		7E5A69C22A3AB81E00381A17 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69C12A3AB81E00381A17 /* CircleView.swift */; };
 		7E5A69C62A3B960000381A17 /* RemindersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69C52A3B960000381A17 /* RemindersTableViewCell.swift */; };
 		7E5A69CB2A3BFA9F00381A17 /* CreateActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CA2A3BFA9F00381A17 /* CreateActivityViewController.swift */; };
-		7E5A69CE2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */; };
-		7E5A69D12A3BFB7F00381A17 /* WorkoutStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69D02A3BFB7F00381A17 /* WorkoutStatsViewController.swift */; };
+		7E5A69CE2A3BFB3700381A17 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69CD2A3BFB3700381A17 /* ExploreViewController.swift */; };
+		7E5A69D12A3BFB7F00381A17 /* WorkoutsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5A69D02A3BFB7F00381A17 /* WorkoutsViewController.swift */; };
 		7E5BB70F2A3E1BD90038D787 /* CreateProgramsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */; };
 		7E70542B2A387E4B0074D13A /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E70542A2A387E4B0074D13A /* Colors.xcassets */; };
 		7E70542F2A3899B60074D13A /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70542E2A3899B60074D13A /* OnboardingPageViewController.swift */; };
@@ -29,6 +57,11 @@
 		7E86524D2A3424BE00E6CD03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E86524B2A3424BE00E6CD03 /* Main.storyboard */; };
 		7E86524F2A3424BF00E6CD03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E86524E2A3424BF00E6CD03 /* Assets.xcassets */; };
 		7E8652522A3424BF00E6CD03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E8652502A3424BF00E6CD03 /* LaunchScreen.storyboard */; };
+		7E8F9C292A55B2E500077A80 /* RemindersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C282A55B2E500077A80 /* RemindersRepository.swift */; };
+		7E8F9C2B2A55B2F400077A80 /* RemindersRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2A2A55B2F400077A80 /* RemindersRepositoryImpl.swift */; };
+		7E8F9C2E2A56148900077A80 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2C2A56148900077A80 /* ActivityTableViewCell.swift */; };
+		7E8F9C2F2A56148900077A80 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */; };
+		7E8F9C332A56238200077A80 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C322A56238200077A80 /* RepositoryProvider.swift */; };
 		7E95AD9B2A4108080044390F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7E95AD9A2A4108080044390F /* GoogleSignIn */; };
 		7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */; };
 		7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */; };
@@ -43,6 +76,8 @@
 		7EA8D0862A38F1DD00C9C1B6 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA8D0852A38F1DD00C9C1B6 /* FirebaseRemoteConfig */; };
 		7EA8D0882A38F1DD00C9C1B6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA8D0872A38F1DD00C9C1B6 /* FirebaseStorage */; };
 		7EA8D08B2A390ABC00C9C1B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */; };
+		7EBDD30E2A4E429B006268AF /* WorkoutProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBDD30D2A4E429B006268AF /* WorkoutProgressViewController.swift */; };
+		7ED191C02A524C3E0010B8B6 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED191BF2A524C3E0010B8B6 /* CircularProgressBar.swift */; };
 		7EE4E74A2A37F16700B1AE5D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE4E7492A37F16700B1AE5D /* UIViewControllerExtension.swift */; };
 		7EE4E74C2A37F19100B1AE5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE4E74B2A37F19100B1AE5D /* UIViewExtension.swift */; };
 		7EF4ADD72A3803B90039C326 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4ADD62A3803B90039C326 /* HeaderView.swift */; };
@@ -56,11 +91,39 @@
 		7E15DE4A2A3D252900CBA1B6 /* CreateReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReminderViewController.swift; sourceTree = "<group>"; };
 		7E15DE4C2A3D259200CBA1B6 /* CustomSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchView.swift; sourceTree = "<group>"; };
 		7E15DE4E2A3D3FF700CBA1B6 /* AddProgramsToActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProgramsToActivityViewController.swift; sourceTree = "<group>"; };
+		7E2063632A56CC74007FBCB0 /* TableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TableView+Extensions.swift"; sourceTree = "<group>"; };
+		7E2063672A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeaderFooter.swift; sourceTree = "<group>"; };
+		7E20636A2A572B0A007FBCB0 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E20636B2A572B0A007FBCB0 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		7E2063772A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		7E2063782A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		7E219EA92A58CADA008D2396 /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
+		7E219EAC2A58E5D9008D2396 /* ExploreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreTableViewCell.swift; sourceTree = "<group>"; };
+		7E219EAF2A58EA9A008D2396 /* ExploreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRepository.swift; sourceTree = "<group>"; };
+		7E219EB12A58EAAE008D2396 /* ExploreRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreRepositoryImpl.swift; sourceTree = "<group>"; };
+		7E219EB42A58EAE0008D2396 /* ExploreListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreListDataModel.swift; sourceTree = "<group>"; };
+		7E219EB62A59007E008D2396 /* ExercisesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListViewController.swift; sourceTree = "<group>"; };
+		7E219EB92A59A18D008D2396 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		7E219EBC2A59A2BA008D2396 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		7E219EBE2A59A2CA008D2396 /* APIClientImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientImpl.swift; sourceTree = "<group>"; };
+		7E219EC22A59AE53008D2396 /* ExploreAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreAPI.swift; sourceTree = "<group>"; };
+		7E219EC72A59B79B008D2396 /* ExercisesBodyPartListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesBodyPartListResponse.swift; sourceTree = "<group>"; };
+		7E219EC92A59B96B008D2396 /* ExerciseForBodyPartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseForBodyPartResponse.swift; sourceTree = "<group>"; };
+		7E219ECB2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesForBodyPartViewController.swift; sourceTree = "<group>"; };
+		7E219ED12A59F77A008D2396 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		7E567BF52A54AC1600A67D8B /* ActivityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataModel.swift; sourceTree = "<group>"; };
+		7E567BF82A54ACA800A67D8B /* ProgramDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataModel.swift; sourceTree = "<group>"; };
+		7E567BFA2A54AD8D00A67D8B /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
+		7E567BFC2A54ADA200A67D8B /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		7E567BFF2A54AF1B00A67D8B /* DailyReminderDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyReminderDataModel.swift; sourceTree = "<group>"; };
+		7E567C022A54B4A400A67D8B /* ActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepository.swift; sourceTree = "<group>"; };
+		7E567C042A54B97B00A67D8B /* ActivityRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityRepositoryImpl.swift; sourceTree = "<group>"; };
+		7E567C082A54D75600A67D8B /* GoGetIt.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoGetIt.xcdatamodel; sourceTree = "<group>"; };
 		7E5A69C12A3AB81E00381A17 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		7E5A69C52A3B960000381A17 /* RemindersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersTableViewCell.swift; sourceTree = "<group>"; };
 		7E5A69CA2A3BFA9F00381A17 /* CreateActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateActivityViewController.swift; sourceTree = "<group>"; };
-		7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesHistoryViewController.swift; sourceTree = "<group>"; };
-		7E5A69D02A3BFB7F00381A17 /* WorkoutStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutStatsViewController.swift; sourceTree = "<group>"; };
+		7E5A69CD2A3BFB3700381A17 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		7E5A69D02A3BFB7F00381A17 /* WorkoutsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsViewController.swift; sourceTree = "<group>"; };
 		7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProgramsViewController.swift; sourceTree = "<group>"; };
 		7E70542A2A387E4B0074D13A /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		7E70542E2A3899B60074D13A /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
@@ -76,12 +139,19 @@
 		7E86524E2A3424BF00E6CD03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E8652512A3424BF00E6CD03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E8652532A3424BF00E6CD03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7E8F9C282A55B2E500077A80 /* RemindersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRepository.swift; sourceTree = "<group>"; };
+		7E8F9C2A2A55B2F400077A80 /* RemindersRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersRepositoryImpl.swift; sourceTree = "<group>"; };
+		7E8F9C2C2A56148900077A80 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		7E8F9C322A56238200077A80 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
 		7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		7E98DD9E2A3AA0E90080E33A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
 		7EA8D0762A38E93E00C9C1B6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7EBDD30D2A4E429B006268AF /* WorkoutProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutProgressViewController.swift; sourceTree = "<group>"; };
+		7ED191BF2A524C3E0010B8B6 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		7EE4E7492A37F16700B1AE5D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		7EE4E74B2A37F19100B1AE5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		7EF4ADD62A3803B90039C326 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -143,6 +213,203 @@
 			path = "Main Tab";
 			sourceTree = "<group>";
 		};
+		7E2063652A56CCC7007FBCB0 /* Activity Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7E8F9C2C2A56148900077A80 /* ActivityTableViewCell.swift */,
+				7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */,
+			);
+			path = "Activity Table View Cell";
+			sourceTree = "<group>";
+		};
+		7E2063662A56CCD7007FBCB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E2063702A57A699007FBCB0 /* Custom Collection View Header */,
+				7E2063652A56CCC7007FBCB0 /* Activity Table View Cell */,
+				7E2063672A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E2063692A572AD5007FBCB0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7E20636E2A57A5B5007FBCB0 /* Custom Collection View Cell */,
+				7E219EAC2A58E5D9008D2396 /* ExploreTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7E20636E2A57A5B5007FBCB0 /* Custom Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				7E20636A2A572B0A007FBCB0 /* CustomCollectionViewCell.swift */,
+				7E20636B2A572B0A007FBCB0 /* CustomCollectionViewCell.xib */,
+			);
+			path = "Custom Collection View Cell";
+			sourceTree = "<group>";
+		};
+		7E2063702A57A699007FBCB0 /* Custom Collection View Header */ = {
+			isa = PBXGroup;
+			children = (
+				7E2063772A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.swift */,
+				7E2063782A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.xib */,
+			);
+			path = "Custom Collection View Header";
+			sourceTree = "<group>";
+		};
+		7E219EAE2A58EA7D008D2396 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EAF2A58EA9A008D2396 /* ExploreRepository.swift */,
+				7E219EB12A58EAAE008D2396 /* ExploreRepositoryImpl.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		7E219EB32A58EAC9008D2396 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EB42A58EAE0008D2396 /* ExploreListDataModel.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		7E219EB82A59A0A8008D2396 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EC12A59AC75008D2396 /* APIClient */,
+				7E219EC02A59ABEF008D2396 /* APIs */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		7E219EC02A59ABEF008D2396 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EC22A59AE53008D2396 /* ExploreAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		7E219EC12A59AC75008D2396 /* APIClient */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EB92A59A18D008D2396 /* APIConstants.swift */,
+				7E219EBC2A59A2BA008D2396 /* APIClient.swift */,
+				7E219EBE2A59A2CA008D2396 /* APIClientImpl.swift */,
+			);
+			path = APIClient;
+			sourceTree = "<group>";
+		};
+		7E219EC42A59B5D5008D2396 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EC62A59B773008D2396 /* Exercises DB */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		7E219EC52A59B5DC008D2396 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EB32A58EAC9008D2396 /* Explore */,
+				7E567BFE2A54AF0B00A67D8B /* Daily Reminder */,
+				7E567BF72A54AC9A00A67D8B /* Program */,
+				7E567BF42A54AB4A00A67D8B /* Activity */,
+				7E95AD9C2A410EF90044390F /* Onboarding Info */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		7E219EC62A59B773008D2396 /* Exercises DB */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EC72A59B79B008D2396 /* ExercisesBodyPartListResponse.swift */,
+				7E219EC92A59B96B008D2396 /* ExerciseForBodyPartResponse.swift */,
+			);
+			path = "Exercises DB";
+			sourceTree = "<group>";
+		};
+		7E219ECD2A59F00D008D2396 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				7E219EA92A58CADA008D2396 /* NutritionViewController.swift */,
+				7E219EB62A59007E008D2396 /* ExercisesListViewController.swift */,
+				7E219ECB2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		7E219ECE2A59F040008D2396 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				7E5A69C92A3BFA7A00381A17 /* Create Activity */,
+				7E15DE472A3D245A00CBA1B6 /* Create Reminder */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		7E219ECF2A59F060008D2396 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		7E219ED02A59F06E008D2396 /* Modals */ = {
+			isa = PBXGroup;
+			children = (
+				7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */,
+			);
+			path = Modals;
+			sourceTree = "<group>";
+		};
+		7E567BF42A54AB4A00A67D8B /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				7E567BF52A54AC1600A67D8B /* ActivityDataModel.swift */,
+				7E567BFA2A54AD8D00A67D8B /* ActivityType.swift */,
+				7E567BFC2A54ADA200A67D8B /* ActivityModel.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		7E567BF72A54AC9A00A67D8B /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				7E567BF82A54ACA800A67D8B /* ProgramDataModel.swift */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		7E567BFE2A54AF0B00A67D8B /* Daily Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				7E567BFF2A54AF1B00A67D8B /* DailyReminderDataModel.swift */,
+			);
+			path = "Daily Reminder";
+			sourceTree = "<group>";
+		};
+		7E567C012A54B47500A67D8B /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				7E567C022A54B4A400A67D8B /* ActivityRepository.swift */,
+				7E567C042A54B97B00A67D8B /* ActivityRepositoryImpl.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		7E567C062A54D73000A67D8B /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				7E567C072A54D75600A67D8B /* GoGetIt.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		7E5A69BC2A3AB73B00381A17 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,27 +429,31 @@
 			path = "Create Activity";
 			sourceTree = "<group>";
 		};
-		7E5A69CC2A3BFAC200381A17 /* Activities History */ = {
+		7E5A69CC2A3BFAC200381A17 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				7E5A69CD2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift */,
+				7E219ECD2A59F00D008D2396 /* Pages */,
+				7E2063692A572AD5007FBCB0 /* Views */,
+				7E5A69CD2A3BFB3700381A17 /* ExploreViewController.swift */,
 			);
-			path = "Activities History";
+			path = Explore;
 			sourceTree = "<group>";
 		};
-		7E5A69CF2A3BFB6B00381A17 /* Workout Stats */ = {
+		7E5A69CF2A3BFB6B00381A17 /* Workouts */ = {
 			isa = PBXGroup;
 			children = (
-				7E5A69D02A3BFB7F00381A17 /* WorkoutStatsViewController.swift */,
+				7EBDD3072A4E371B006268AF /* Views */,
+				7E5A69D02A3BFB7F00381A17 /* WorkoutsViewController.swift */,
+				7EBDD30D2A4E429B006268AF /* WorkoutProgressViewController.swift */,
 			);
-			path = "Workout Stats";
+			path = Workouts;
 			sourceTree = "<group>";
 		};
 		7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */ = {
 			isa = PBXGroup;
 			children = (
+				7E219ED02A59F06E008D2396 /* Modals */,
 				7E15DE4E2A3D3FF700CBA1B6 /* AddProgramsToActivityViewController.swift */,
-				7E5BB70E2A3E1BD90038D787 /* CreateProgramsViewController.swift */,
 			);
 			path = "Add Programs To Activity";
 			sourceTree = "<group>";
@@ -190,7 +461,8 @@
 		7E7054302A38A0250074D13A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7E95AD9C2A410EF90044390F /* Onboarding Info */,
+				7E219EC52A59B5DC008D2396 /* Data */,
+				7E219EC42A59B5D5008D2396 /* Responses */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -198,12 +470,10 @@
 		7E7054312A38A0350074D13A /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7E2063662A56CCD7007FBCB0 /* Views */,
 				7E70543E2A38D6850074D13A /* Extensions */,
-				7E5BB70D2A3E1B660038D787 /* Add Programs To Activity */,
-				7E5A69C92A3BFA7A00381A17 /* Create Activity */,
-				7E15DE472A3D245A00CBA1B6 /* Create Reminder */,
-				7E5A69CF2A3BFB6B00381A17 /* Workout Stats */,
-				7E5A69CC2A3BFAC200381A17 /* Activities History */,
+				7E5A69CF2A3BFB6B00381A17 /* Workouts */,
+				7E5A69CC2A3BFAC200381A17 /* Explore */,
 				7EA8D0892A390AB200C9C1B6 /* Home */,
 				7E15DE492A3D24C900CBA1B6 /* Main Tab */,
 				7EA8D0752A38E93400C9C1B6 /* Login */,
@@ -243,8 +513,10 @@
 		7E70543E2A38D6850074D13A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7E219ED12A59F77A008D2396 /* UIImage+Gif.swift */,
 				7EE4E7492A37F16700B1AE5D /* UIViewControllerExtension.swift */,
 				7EE4E74B2A37F19100B1AE5D /* UIViewExtension.swift */,
+				7E2063632A56CC74007FBCB0 /* TableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -270,14 +542,23 @@
 		7E8652442A3424BE00E6CD03 /* Go Get It */ = {
 			isa = PBXGroup;
 			children = (
+				7E7054332A38A0720074D13A /* Assets */,
 				7E95ADA52A41183F0044390F /* Application */,
 				7E95AD9D2A4111090044390F /* Data */,
-				7E7054332A38A0720074D13A /* Assets */,
 				7E7054312A38A0350074D13A /* View Controllers */,
 				7E8652532A3424BF00E6CD03 /* Info.plist */,
 				7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */,
 			);
 			path = "Go Get It";
+			sourceTree = "<group>";
+		};
+		7E8F9C272A55B2CB00077A80 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				7E8F9C282A55B2E500077A80 /* RemindersRepository.swift */,
+				7E8F9C2A2A55B2F400077A80 /* RemindersRepositoryImpl.swift */,
+			);
+			path = Reminders;
 			sourceTree = "<group>";
 		};
 		7E95AD9C2A410EF90044390F /* Onboarding Info */ = {
@@ -292,25 +573,31 @@
 		7E95AD9D2A4111090044390F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				7E95AD9F2A41117B0044390F /* Repositories */,
 				7E7054302A38A0250074D13A /* Model */,
+				7E219EB82A59A0A8008D2396 /* Networking */,
+				7E567C062A54D73000A67D8B /* Core Data */,
+				7E95AD9F2A41117B0044390F /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		7E95AD9E2A4111100044390F /* Auth */ = {
+		7E95AD9E2A4111100044390F /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
 				7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */,
 				7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */,
 			);
-			path = Auth;
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 		7E95AD9F2A41117B0044390F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				7E95AD9E2A4111100044390F /* Auth */,
+				7E219EAE2A58EA7D008D2396 /* Explore */,
+				7E8F9C272A55B2CB00077A80 /* Reminders */,
+				7E567C012A54B47500A67D8B /* Activity */,
+				7E95AD9E2A4111100044390F /* Authentication */,
+				7E8F9C322A56238200077A80 /* RepositoryProvider.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -337,10 +624,28 @@
 		7EA8D0892A390AB200C9C1B6 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				7E219ECF2A59F060008D2396 /* Pages */,
+				7E219ECE2A59F040008D2396 /* Modals */,
 				7E5A69BC2A3AB73B00381A17 /* Views */,
 				7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7EBDD3072A4E371B006268AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7ED191BC2A524C0D0010B8B6 /* Circular Progress Bar */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7ED191BC2A524C0D0010B8B6 /* Circular Progress Bar */ = {
+			isa = PBXGroup;
+			children = (
+				7ED191BF2A524C3E0010B8B6 /* CircularProgressBar.swift */,
+			);
+			path = "Circular Progress Bar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,8 +723,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E8652522A3424BF00E6CD03 /* LaunchScreen.storyboard in Resources */,
+				7E8F9C2F2A56148900077A80 /* ActivityTableViewCell.xib in Resources */,
+				7E20636D2A572B0A007FBCB0 /* CustomCollectionViewCell.xib in Resources */,
 				7E70542B2A387E4B0074D13A /* Colors.xcassets in Resources */,
 				7EA8D0792A38EEFF00C9C1B6 /* GoogleService-Info.plist in Resources */,
+				7E20637A2A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.xib in Resources */,
 				7E86524F2A3424BF00E6CD03 /* Assets.xcassets in Resources */,
 				7E86524D2A3424BE00E6CD03 /* Main.storyboard in Resources */,
 			);
@@ -474,31 +782,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E219ED22A59F77A008D2396 /* UIImage+Gif.swift in Sources */,
+				7E567C032A54B4A400A67D8B /* ActivityRepository.swift in Sources */,
 				7EA8D0772A38E93E00C9C1B6 /* LoginViewController.swift in Sources */,
+				7E567C052A54B97B00A67D8B /* ActivityRepositoryImpl.swift in Sources */,
+				7E20636C2A572B0A007FBCB0 /* CustomCollectionViewCell.swift in Sources */,
 				7E15DE4F2A3D3FF700CBA1B6 /* AddProgramsToActivityViewController.swift in Sources */,
+				7ED191C02A524C3E0010B8B6 /* CircularProgressBar.swift in Sources */,
+				7E8F9C292A55B2E500077A80 /* RemindersRepository.swift in Sources */,
 				7EE4E74C2A37F19100B1AE5D /* UIViewExtension.swift in Sources */,
 				7E7054382A38BA320074D13A /* Colors.swift in Sources */,
 				7EF4ADD72A3803B90039C326 /* HeaderView.swift in Sources */,
 				7EE4E74A2A37F16700B1AE5D /* UIViewControllerExtension.swift in Sources */,
+				7E219EAA2A58CADA008D2396 /* NutritionViewController.swift in Sources */,
 				7E98DD9F2A3AA0E90080E33A /* MainTabViewController.swift in Sources */,
 				7E5A69CB2A3BFA9F00381A17 /* CreateActivityViewController.swift in Sources */,
+				7E2063642A56CC74007FBCB0 /* TableView+Extensions.swift in Sources */,
+				7E8F9C2E2A56148900077A80 /* ActivityTableViewCell.swift in Sources */,
 				7E86524A2A3424BE00E6CD03 /* OnboardingViewController.swift in Sources */,
+				7E8F9C332A56238200077A80 /* RepositoryProvider.swift in Sources */,
+				7E567BFD2A54ADA200A67D8B /* ActivityModel.swift in Sources */,
+				7E567BF62A54AC1600A67D8B /* ActivityDataModel.swift in Sources */,
+				7E219ECA2A59B96B008D2396 /* ExerciseForBodyPartResponse.swift in Sources */,
 				7E15DE4B2A3D252900CBA1B6 /* CreateReminderViewController.swift in Sources */,
+				7E219EAD2A58E5D9008D2396 /* ExploreTableViewCell.swift in Sources */,
 				7E5A69C22A3AB81E00381A17 /* CircleView.swift in Sources */,
 				7E7054352A38B8630074D13A /* OnboardingData.swift in Sources */,
-				7E5A69D12A3BFB7F00381A17 /* WorkoutStatsViewController.swift in Sources */,
+				7E219EB72A59007E008D2396 /* ExercisesListViewController.swift in Sources */,
+				7E5A69D12A3BFB7F00381A17 /* WorkoutsViewController.swift in Sources */,
+				7E219EBF2A59A2CA008D2396 /* APIClientImpl.swift in Sources */,
 				7E15DE4D2A3D259200CBA1B6 /* CustomSwitchView.swift in Sources */,
+				7E567BFB2A54AD8D00A67D8B /* ActivityType.swift in Sources */,
 				7E8652462A3424BE00E6CD03 /* AppDelegate.swift in Sources */,
 				7E70543A2A38BC080074D13A /* Images.swift in Sources */,
 				7E70542F2A3899B60074D13A /* OnboardingPageViewController.swift in Sources */,
-				7E5A69CE2A3BFB3700381A17 /* ActivitiesHistoryViewController.swift in Sources */,
+				7E219ECC2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift in Sources */,
+				7E5A69CE2A3BFB3700381A17 /* ExploreViewController.swift in Sources */,
+				7E567C092A54D75600A67D8B /* GoGetIt.xcdatamodeld in Sources */,
 				7E8652482A3424BE00E6CD03 /* SceneDelegate.swift in Sources */,
 				7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */,
+				7E8F9C2B2A55B2F400077A80 /* RemindersRepositoryImpl.swift in Sources */,
+				7E219EC32A59AE53008D2396 /* ExploreAPI.swift in Sources */,
+				7E219EBA2A59A18D008D2396 /* APIConstants.swift in Sources */,
+				7E2063792A57AF5A007FBCB0 /* CustomHeaderCollectionReusableView.swift in Sources */,
+				7E567BF92A54ACA800A67D8B /* ProgramDataModel.swift in Sources */,
+				7EBDD30E2A4E429B006268AF /* WorkoutProgressViewController.swift in Sources */,
 				7E5A69C62A3B960000381A17 /* RemindersTableViewCell.swift in Sources */,
 				7EA8D08B2A390ABC00C9C1B6 /* HomeViewController.swift in Sources */,
 				7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */,
+				7E219EB02A58EA9A008D2396 /* ExploreRepository.swift in Sources */,
+				7E219EBD2A59A2BA008D2396 /* APIClient.swift in Sources */,
+				7E219EC82A59B79B008D2396 /* ExercisesBodyPartListResponse.swift in Sources */,
+				7E2063682A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift in Sources */,
+				7E219EB52A58EAE0008D2396 /* ExploreListDataModel.swift in Sources */,
 				7E70543C2A38C16A0074D13A /* OnboardingInfoList.swift in Sources */,
 				7E5BB70F2A3E1BD90038D787 /* CreateProgramsViewController.swift in Sources */,
+				7E567C002A54AF1B00A67D8B /* DailyReminderDataModel.swift in Sources */,
+				7E219EB22A58EAAE008D2396 /* ExploreRepositoryImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,6 +1120,19 @@
 			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		7E567C072A54D75600A67D8B /* GoGetIt.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7E567C082A54D75600A67D8B /* GoGetIt.xcdatamodel */,
+			);
+			currentVersion = 7E567C082A54D75600A67D8B /* GoGetIt.xcdatamodel */;
+			path = GoGetIt.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7E86523A2A3424BE00E6CD03 /* Project object */;
 }

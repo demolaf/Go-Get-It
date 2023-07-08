@@ -13,6 +13,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var remindersTableView: UITableView!
     
+    var remindersRepository: RemindersRepository!
+    var activityRepository: ActivityRepository!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,20 +23,41 @@ class HomeViewController: UIViewController {
         remindersTableView.dataSource = self
         
         postInit()
+        
+        remindersRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.remindersRepository
+        activityRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.activityRepository
     }
     
     @IBAction func startActivityButtonPressed(_ sender: UITapGestureRecognizer) {
-        print("Start activity \(sender.view?.tag ?? 0)")
+        guard let tag = sender.view?.tag else {
+            return
+        }
+        
+        print("Start activity \(tag)")
         
         let createActivityVC = storyboard?.instantiateViewController(withIdentifier: "CreateActivityViewController") as! CreateActivityViewController
         
-        createActivityVC.parentNavigationController = navigationController
+        createActivityVC.activityType = ActivityType(rawValue: tag)
+        createActivityVC.activityRepository = activityRepository
+        createActivityVC.dismissCompletionHander = { newActivity in
+            let addProgramsToActivityVC = self.storyboard?.instantiateViewController(withIdentifier: "AddProgramsToActivityViewController") as! AddProgramsToActivityViewController
+            
+            addProgramsToActivityVC.activity = newActivity
+            addProgramsToActivityVC.activityRepository = self.activityRepository
+            
+            self.navigationController?.pushViewController(addProgramsToActivityVC, animated: true)
+        }
         
         present(createActivityVC, animated: true)
     }
     
     @IBAction func addReminderButtonPressed(_ sender: UIButton) {
         let createReminderVC = storyboard?.instantiateViewController(withIdentifier: "CreateReminderViewController") as! CreateReminderViewController
+        
+        createReminderVC.remindersRepository = remindersRepository
+        createReminderVC.dismissCompletionHandler = {
+            self.remindersTableView.reloadData()
+        }
 
         present(createReminderVC, animated: true)
     }
@@ -71,18 +95,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: UIFont.Weight(600))], range: NSRange(subtitleRange, in: greetingText))
         
         headerLabel.attributedText = attributedString
+        headerLabel.numberOfLines = 2
     }
     
     // MARK: Reminders Delegate & Datasource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        if remindersRepository.reminders.isEmpty {
+            tableView.setEmptyView(title: "No reminders yet.", message: "Create reminders using the \"+\" button at the corner")
+        }
+        else {
+            tableView.restore()
+        }
+        
+        return remindersRepository.reminders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RemindersCell") as! RemindersTableViewCell
         
-        cell.reminderLabel.text = "Drink 200ml of water."
+        let reminder = remindersRepository.reminders[indexPath.row]
+        
+        cell.reminderLabel.text = reminder.reminderTitle
+        cell.checkbox.isSelected = reminder.completed
         
         cell.backgroundColor = .clear
         

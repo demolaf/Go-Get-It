@@ -22,7 +22,7 @@ class LoginViewController: UIViewController {
         
         navigationItem.hidesBackButton = true
         
-        authenticationRepository = AuthenticationRepositoryImpl()
+        authenticationRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.authRepository
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -41,8 +41,10 @@ class LoginViewController: UIViewController {
             }
         case .apple:
             authenticationRepository.signInWithApple()
+            navigateToHome()
         case .facebook:
             authenticationRepository.signInWithFacebook()
+            navigateToHome()
         }
     }
     

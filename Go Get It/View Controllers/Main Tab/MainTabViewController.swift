@@ -17,6 +17,9 @@ class MainTabViewController: UITabBarController {
         navigationController?.navigationBar.isHidden = true
         tabBar.tintColor = .black
         tabBar.backgroundColor = .white
+        tabBar.isTranslucent = false
+        tabBar.layer.borderWidth = 0
+        tabBar.clipsToBounds = true
     }
     
 
