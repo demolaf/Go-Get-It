@@ -18,7 +18,7 @@ class CreateActivityViewController: UIViewController {
     
     var activityType: ActivityType!
     var activityRepository: ActivityRepository!
-    var dismissCompletionHander: ((ActivityDataModel) -> Void)!
+    var dismissCompletionHander: ((ActivityMO) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()

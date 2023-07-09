@@ -26,7 +26,7 @@ class ExercisesForBodyPartViewController: UIViewController {
         
         let attributedString = NSMutableAttributedString(string: text)
         
-        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .medium)], range: NSRange(titleRange, in: text))
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)], range: NSRange(titleRange, in: text))
         
         let textLabel = UILabel()
         textLabel.attributedText  = attributedString
@@ -94,12 +94,6 @@ extension ExercisesForBodyPartViewController: UICollectionViewDelegate, UICollec
         let height = Int((collectionView.frame.size.height - totalHeightSpace) / CGFloat(noOfCellsInRow + 1))
         
         flowLayout.itemSize = CGSize(width: width, height: height)
-        
-//        flowLayout.itemSize = CGSize(width: (collectionView.frame.size.width/2)-6, height: (collectionView.frame.size.height/3)-8)
-//        flowLayout.minimumInteritemSpacing = 12
-//        flowLayout.minimumLineSpacing = 24
-//        flowLayout.sectionInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
-        flowLayout.headerReferenceSize = CGSize(width: self.collectionView.frame.width, height: 55)
         
         registerCollectViewCell()
         registerHeaderView()

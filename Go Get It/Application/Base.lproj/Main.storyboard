@@ -775,75 +775,6 @@
             </objects>
             <point key="canvasLocation" x="3253" y="253"/>
         </scene>
-        <!--Nutrition-->
-        <scene sceneID="K1R-D4-PNc">
-            <objects>
-                <viewController storyboardIdentifier="NutritionViewController" id="Qzc-h9-tII" customClass="NutritionViewController" customModule="Go_Get_It" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cu7-zU-lme">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V56-PN-4ho" userLabel="Body View">
-                                <rect key="frame" x="0.0" y="75" width="393" height="777"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mk-JE-4LR" userLabel="Nutrition List View">
-                                        <rect key="frame" x="12" y="12" width="369" height="765"/>
-                                        <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zXE-1I-eAH">
-                                                <rect key="frame" x="12" y="12" width="345" height="741"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jvZ-oU-RIh">
-                                                    <size key="itemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P8t-Bl-L6t">
-                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6xb-ab-mli">
-                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                        </collectionViewCellContentView>
-                                                    </collectionViewCell>
-                                                </cells>
-                                            </collectionView>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="zXE-1I-eAH" secondAttribute="trailing" constant="12" id="KXv-H6-I2N"/>
-                                            <constraint firstItem="zXE-1I-eAH" firstAttribute="leading" secondItem="9mk-JE-4LR" secondAttribute="leading" constant="12" id="VsU-nG-GV6"/>
-                                            <constraint firstAttribute="bottom" secondItem="zXE-1I-eAH" secondAttribute="bottom" constant="12" id="u3K-nk-crp"/>
-                                            <constraint firstItem="zXE-1I-eAH" firstAttribute="top" secondItem="9mk-JE-4LR" secondAttribute="top" constant="12" id="uUG-X9-APR"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="9mk-JE-4LR" firstAttribute="leading" secondItem="V56-PN-4ho" secondAttribute="leading" constant="12" id="2pe-bC-OsV"/>
-                                    <constraint firstAttribute="bottom" secondItem="9mk-JE-4LR" secondAttribute="bottom" id="ASZ-Qw-5DP"/>
-                                    <constraint firstAttribute="trailing" secondItem="9mk-JE-4LR" secondAttribute="trailing" constant="12" id="Tir-HK-XIx"/>
-                                    <constraint firstItem="9mk-JE-4LR" firstAttribute="top" secondItem="V56-PN-4ho" secondAttribute="top" constant="12" id="dOs-5z-4bz"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kvx-Sn-LIV"/>
-                        <color key="backgroundColor" name="activities-background"/>
-                        <constraints>
-                            <constraint firstItem="V56-PN-4ho" firstAttribute="top" secondItem="kvx-Sn-LIV" secondAttribute="top" constant="16" id="9Xf-ew-2P4"/>
-                            <constraint firstAttribute="bottom" secondItem="V56-PN-4ho" secondAttribute="bottom" id="FLr-a0-y2J"/>
-                            <constraint firstItem="V56-PN-4ho" firstAttribute="leading" secondItem="kvx-Sn-LIV" secondAttribute="leading" id="PEa-Xv-h9t"/>
-                            <constraint firstItem="V56-PN-4ho" firstAttribute="trailing" secondItem="kvx-Sn-LIV" secondAttribute="trailing" id="uUI-5z-3bl"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Nutrition" image="activity" id="mY6-KV-aJz"/>
-                    <navigationItem key="navigationItem" id="5tq-1S-sDH"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="exI-iq-wSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="8447" y="231"/>
-        </scene>
         <!--Onboarding Page View Controller-->
         <scene sceneID="Z0z-w9-qQc">
             <objects>
@@ -1024,7 +955,7 @@
                                                 <rect key="frame" x="0.0" y="120" width="345" height="31"/>
                                                 <subviews>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zsn-Zd-8c7" customClass="CustomSwitchView" customModule="Go_Get_It" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                        <rect key="frame" x="12.75" y="7.75" width="27.5" height="15.5"/>
                                                         <color key="onTintColor" name="home-background"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="scale">
@@ -1509,7 +1440,7 @@
         <!--Workouts-->
         <scene sceneID="Rx7-yd-f8i">
             <objects>
-                <viewController storyboardIdentifier="WorkoutProgressViewController" id="EGH-ka-ewT" customClass="WorkoutProgressViewController" customModule="Go_Get_It" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WorkoutProgressViewController" hidesBottomBarWhenPushed="YES" id="EGH-ka-ewT" customClass="WorkoutProgressViewController" customModule="Go_Get_It" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dNo-F3-ul1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2257,7 +2188,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="k2m-kb-Soz"/>
-                        <color key="backgroundColor" name="home-background"/>
+                        <color key="backgroundColor" name="activities-background"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="811-d1-Jyq" secondAttribute="bottom" id="FhH-te-Ut3"/>
                             <constraint firstItem="k2m-kb-Soz" firstAttribute="trailing" secondItem="811-d1-Jyq" secondAttribute="trailing" id="HlF-du-6ky"/>
@@ -2345,7 +2276,7 @@
                         <outlet property="bodyView" destination="5wQ-Uz-hFR" id="vdH-xp-YRS"/>
                         <outlet property="collectionView" destination="hPM-WW-sOS" id="Abc-k9-j2Y"/>
                         <outlet property="exercisesMainView" destination="LKZ-W2-otf" id="zwB-v4-p5q"/>
-                        <outlet property="flowLayout" destination="xYj-E3-V85" id="Buf-Ax-HyZ"/>
+                        <outlet property="flowLayout" destination="xYj-E3-V85" id="uf6-Ad-TXf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nex-NK-x9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

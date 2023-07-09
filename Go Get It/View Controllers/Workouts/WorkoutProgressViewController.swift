@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WorkoutProgressViewController: UIViewController {
     
@@ -14,7 +15,9 @@ class WorkoutProgressViewController: UIViewController {
     @IBOutlet weak var workoutsBodyView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    var activity: ActivityDataModel!
+    var activity: ActivityMO!
+    var dataController: DataController!
+    var fetchedResultsController: NSFetchedResultsController<ProgramMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,27 @@ class WorkoutProgressViewController: UIViewController {
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        setupFetchedResultsController()
+    }
+    
+    func setupFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<ProgramMO> = ProgramMO.fetchRequest()
+        let predicate = NSPredicate(format: "activity == %@", activity)
+        fetchRequest.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
 }
 
@@ -56,10 +78,10 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
     func setupNavigationBar() {
         let imageView = UIImageView()
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1/1).isActive = true
-        imageView.image = Images.upperBodyIcon?.withRenderingMode(.alwaysTemplate)
+        imageView.image = ActivityType(rawValue: Int(activity.type))?.info.image?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = .white
         
-        let text = "Chest Day"
+        let text = activity.title ?? ""
         
         let titleRange = text.range(of: text)!
         
@@ -154,57 +176,94 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if activity.programs.isEmpty {
-            tableView.setEmptyView(title: "No programs yet.", message: "")
+//        if activity.programs.isEmpty {
+//            tableView.setEmptyView(title: "No programs yet.", message: "")
+//        }
+//        else {
+//            tableView.restore()
+//        }
+//        return activity.programs.count
+        if fetchedResultsController.fetchedObjects?.isEmpty ?? false {
+            tableView.setEmptyView(title: "You haven't created any programs yet.", message: "Create programs using the \"+\" button at the bottom")
         }
         else {
             tableView.restore()
         }
-        return activity.programs.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.sectionHeaderTopPadding = 0
         
-        if !activity.programs.isEmpty {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CurrentWorkoutsSection") as! CustomTableViewHeaderFooter
-            
-            let text = "Programs"
-            let titleRange = text.range(of: text)!
-            let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
-            view.title.attributedText = attributedString
-            
-            return view
-        }
-        
+//        if !activity.programs.isEmpty {
+//            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CurrentWorkoutsSection") as! CustomTableViewHeaderFooter
+//
+//            let text = "Programs"
+//            let titleRange = text.range(of: text)!
+//            let attributedString = NSMutableAttributedString(string: text)
+//            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+//            view.title.attributedText = attributedString
+//
+//            return view
+//        }
+//
         return UIView()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutsCell") as! ActivityTableViewCell
         
-        let program = activity.programs[indexPath.row]
+        let program = fetchedResultsController.object(at: indexPath)
         
-        cell.imageCircleView.backgroundColor = program.activityType.info.color
-        cell.programImageView.image = program.activityType.info.image
-        cell.programTitleLabel.text = program.programTitle
+        let activityType = ActivityType(rawValue: Int(program.activityType))!
+        cell.imageCircleView.backgroundColor = activityType.info.color
+        cell.programImageView.image = activityType.info.image
+        cell.programTitleLabel.text = program.title
         cell.programSubtitleLabel.text = "\(program.reps) reps x \(program.sets) sets"
-        cell.markAsCompleted(completed: program.completed)
+        // cell.markAsCompleted(completed: program.completed)
         
         return cell
     }
 }
 
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct WorkoutProgressViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        // view controller using programmatic UI
-        // Assuming your storyboard file name is "Main"
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "WorkoutProgressViewController").showPreview()
+extension WorkoutProgressViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            break
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
+        }
     }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert:
+            tableView.insertSections(indexSet, with: .fade)
+        case .delete: tableView.deleteSections(indexSet, with: .fade)
+        case .update, .move:
+            fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
+        @unknown default:
+            fatalError()
+        }
+    }
+
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
 }
-#endif

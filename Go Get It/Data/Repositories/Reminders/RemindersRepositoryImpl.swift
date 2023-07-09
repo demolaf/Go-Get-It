@@ -9,11 +9,11 @@ import Foundation
 
 class RemindersRepositoryImpl: RemindersRepository {
     
-    var reminders = [DailyReminderDataModel]()
+    var reminders = [ReminderMO]()
     
     func createReminder(title: String, time: Date?, notifyMe: Bool = false, completed: Bool = false) {
-        let newReminder = DailyReminderDataModel(reminderTitle: title, time: time, notifyMe: notifyMe, completed: completed)
-        
-        reminders.append(newReminder)
+//        let newReminder = ReminderMO(reminderTitle: title, time: time, notifyMe: notifyMe, completed: completed)
+//
+//        reminders.append(newReminder)
     }
 }

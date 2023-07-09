@@ -7,18 +7,17 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class WorkoutsViewController: UIViewController {
-
+    
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var listView: UIView!
     @IBOutlet weak var workoutsTableView: UITableView!
     
     var activityRepository: ActivityRepository!
     
-    var incompleteWorkouts = [ActivityDataModel]()
-    
-    var completeWorkouts = [ActivityDataModel]()
+    var workoutsFetchedResultsController: NSFetchedResultsController<ActivityMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +46,26 @@ class WorkoutsViewController: UIViewController {
         
         navigationItem.titleView = stackView
         
-//        navigationController?.navigationBar.standardAppearance.shadowColor = .clear
-//        navigationController?.navigationBar.scrollEdgeAppearance?.shadowColor = .clear
-//
+        //        navigationController?.navigationBar.standardAppearance.shadowColor = .clear
+        //        navigationController?.navigationBar.scrollEdgeAppearance?.shadowColor = .clear
+        //
         postInit()
+    }
+    
+    func setupWorkoutsFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
+        
+        let completedSortDescriptor = NSSortDescriptor(key: "completed", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [completedSortDescriptor, sortDescriptor]
+        
+        workoutsFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: "completed", cacheName: nil)
+        workoutsFetchedResultsController.delegate = self
+        do {
+            try workoutsFetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
 }
 
@@ -73,8 +88,7 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func fetchWorkoutActivities() {
-        incompleteWorkouts = activityRepository.fetchWorkoutActivities(completed: false)
-        completeWorkouts = activityRepository.fetchWorkoutActivities(completed: true)
+        setupWorkoutsFetchedResultsController()
         
         workoutsTableView.reloadData()
     }
@@ -84,8 +98,6 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
         workoutsTableView.dataSource = self
         
         workoutsTableView.register(CustomTableViewHeaderFooter.self,
-                                   forHeaderFooterViewReuseIdentifier: "IncompleteSection")
-        workoutsTableView.register(CustomTableViewHeaderFooter.self,
                                    forHeaderFooterViewReuseIdentifier: "CompleteSection")
         
         registerTableViewCells()
@@ -93,9 +105,9 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func registerTableViewCells() {
         let activityTableViewCell = UINib(nibName: "ActivityTableViewCell",
-                                  bundle: nil)
+                                          bundle: nil)
         self.workoutsTableView.register(activityTableViewCell,
-                                forCellReuseIdentifier: "WorkoutsCell")
+                                        forCellReuseIdentifier: "WorkoutsCell")
     }
     
     private func setupViewAppearance() {
@@ -109,76 +121,63 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: Reminders Delegate & Datasource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+        return workoutsFetchedResultsController.sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if incompleteWorkouts.isEmpty && completeWorkouts.isEmpty {
+        if workoutsFetchedResultsController.sections?[section].numberOfObjects == 0 {
             tableView.setEmptyView(title: "No workouts yet.", message: "Create workouts using the \"Start New Activity\" buttons on the home screen")
         }
         else {
             tableView.restore()
         }
         
-        if section == 0 {
-            return incompleteWorkouts.count
+        guard let section = workoutsFetchedResultsController.sections?[section] else {
+            return 0
         }
-        
-        return completeWorkouts.count
+        return section.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if section == 0 {
-            if !incompleteWorkouts.isEmpty {
-                let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "IncompleteSection") as! CustomTableViewHeaderFooter
-                
-                let text = "Incomplete Workouts"
-                let titleRange = text.range(of: text)!
-                let attributedString = NSMutableAttributedString(string: text)
-                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
-                view.title.attributedText = attributedString
-                
-                return view
-            }
-            return UIView()
-        } else {
-            if !completeWorkouts.isEmpty {
-                let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CompleteSection") as! CustomTableViewHeaderFooter
-                
-                let text = "Complete Workouts"
-                let titleRange = text.range(of: text)!
-                let attributedString = NSMutableAttributedString(string: text)
-                attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
-                view.title.attributedText = attributedString
-                
-                return view
-            }
+        guard let sectionInfo = workoutsFetchedResultsController?.sections?[section] else {
             return UIView()
         }
+        
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CompleteSection") as! CustomTableViewHeaderFooter
+        
+        if section == 0 {
+            let text = "Incomplete Workouts"
+            let titleRange = text.range(of: text)!
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+            view.title.attributedText = attributedString
+            
+            return view
+        }
+        
+        let text = "Complete Workouts"
+        let titleRange = text.range(of: text)!
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+        view.title.attributedText = attributedString
+        
+        return view
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutsCell") as! ActivityTableViewCell
         
-        if indexPath.section == 0 {
-            let incompleteWorkout = incompleteWorkouts[indexPath.row]
-            
-            cell.programImageView.image = incompleteWorkout.activityType.info.image
-            cell.imageCircleView.backgroundColor = incompleteWorkout.activityType.info.color
-            cell.programTitleLabel.text = incompleteWorkout.activityTitle
-            cell.programSubtitleLabel.text = "\(incompleteWorkout.programs.count) workouts left"
-            
-            return cell
+        guard let workout = self.workoutsFetchedResultsController?.object(at: indexPath) else {
+            fatalError("Attempt to configure cell without a managed object")
         }
         
-        let completeWorkout = completeWorkouts[indexPath.row]
-        
-        cell.programImageView.image = completeWorkout.activityType.info.image
-        cell.imageCircleView.backgroundColor = completeWorkout.activityType.info.color
-        cell.programTitleLabel.text = completeWorkout.activityTitle
-        cell.programSubtitleLabel.text = "Completed"
-        
+        let activityType = ActivityType(rawValue: Int(workout.type))!
+        cell.programImageView.image = activityType.info.image
+        cell.imageCircleView.backgroundColor = activityType.info.color
+        cell.programTitleLabel.text = workout.title
+        cell.programSubtitleLabel.text =  workout.completed ? "Completed" : "\(workout.programs?.count ?? 0) workouts left"
         
         return cell
     }
@@ -186,12 +185,51 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workoutProgressVC = storyboard?.instantiateViewController(withIdentifier: "WorkoutProgressViewController") as! WorkoutProgressViewController
         
-        if indexPath.section == 0 {
-            workoutProgressVC.activity = incompleteWorkouts[indexPath.row]
-        } else if indexPath.section == 1 {
-            workoutProgressVC.activity = completeWorkouts[indexPath.row]
-        }
+        workoutProgressVC.activity =  workoutsFetchedResultsController.object(at: indexPath)
+        workoutProgressVC.dataController = self.activityRepository.dataController
         
         navigationController?.pushViewController(workoutProgressVC, animated: true)
     }
 }
+
+extension WorkoutsViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            workoutsTableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            workoutsTableView.deleteRows(at: [indexPath!], with: .fade)
+            break
+        case .update:
+            workoutsTableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            workoutsTableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert: workoutsTableView.insertSections(indexSet, with: .fade)
+        case .delete: workoutsTableView.deleteSections(indexSet, with: .fade)
+        case .update, .move:
+            fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        workoutsTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        workoutsTableView.endUpdates()
+    }
+    
+}
+

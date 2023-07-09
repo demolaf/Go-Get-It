@@ -114,26 +114,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RemindersCell") as! RemindersTableViewCell
         
-        let reminder = remindersRepository.reminders[indexPath.row]
-        
-        cell.reminderLabel.text = reminder.reminderTitle
-        cell.checkbox.isSelected = reminder.completed
-        
-        cell.backgroundColor = .clear
+//        let reminder = remindersRepository.reminders[indexPath.row]
+//
+//        cell.reminderLabel.text = reminder.reminderTitle
+//        cell.checkbox.isSelected = reminder.completed
+//
+//        cell.backgroundColor = .clear
         
         return cell
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct HomeViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        // view controller using programmatic UI
-        // Assuming your storyboard file name is "Main"
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "HomeViewController").showPreview()
-    }
-}
-#endif

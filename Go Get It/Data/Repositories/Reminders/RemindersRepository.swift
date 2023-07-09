@@ -8,7 +8,7 @@
 import Foundation
 
 protocol RemindersRepository {
-    var reminders: [DailyReminderDataModel] { get }
+    var reminders: [ReminderMO] { get }
     
     func createReminder(title: String, time: Date?, notifyMe: Bool, completed: Bool)
 }

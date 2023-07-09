@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPl-qg-z8m">
                         <rect key="frame" x="0.0" y="0.0" width="216" height="305"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-Lx-mk3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3o-Lx-mk3" userLabel="Image Background View">
                                 <rect key="frame" x="0.0" y="0.0" width="216" height="216"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="TWF-Ab-6xk">
@@ -33,7 +33,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ffo-53-3Zq" secondAttribute="bottom" id="3E1-Vf-bba"/>
                                     <constraint firstItem="ffo-53-3Zq" firstAttribute="leading" secondItem="V3o-Lx-mk3" secondAttribute="leading" id="Eyz-x2-4yf"/>
@@ -43,18 +43,18 @@
                                     <constraint firstItem="ffo-53-3Zq" firstAttribute="top" secondItem="V3o-Lx-mk3" secondAttribute="top" id="g9I-No-iuy"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="igM-6d-bMk">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="igM-6d-bMk">
                                 <rect key="frame" x="12" y="232" width="192" height="61"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGz-q4-o20">
-                                        <rect key="frame" x="0.0" y="0.0" width="192" height="30.666666666666668"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGz-q4-o20">
+                                        <rect key="frame" x="0.0" y="0.0" width="192" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6x-BV-xwg">
-                                        <rect key="frame" x="0.0" y="30.666666666666686" width="192" height="30.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6x-BV-xwg">
+                                        <rect key="frame" x="0.0" y="32.666666666666686" width="192" height="28.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -64,9 +64,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="V3o-Lx-mk3" firstAttribute="top" secondItem="YPl-qg-z8m" secondAttribute="top" id="3kQ-4B-vmE"/>
-                            <constraint firstAttribute="bottom" secondItem="igM-6d-bMk" secondAttribute="bottom" constant="12" id="Anz-kC-PNj"/>
                             <constraint firstItem="igM-6d-bMk" firstAttribute="top" secondItem="V3o-Lx-mk3" secondAttribute="bottom" constant="16" id="DiR-5X-PGh"/>
                             <constraint firstAttribute="trailing" secondItem="igM-6d-bMk" secondAttribute="trailing" constant="12" id="HMP-Oo-Ja2"/>
+                            <constraint firstAttribute="bottom" secondItem="igM-6d-bMk" secondAttribute="bottom" constant="12" id="Ue6-L4-oJs"/>
                             <constraint firstItem="igM-6d-bMk" firstAttribute="leading" secondItem="YPl-qg-z8m" secondAttribute="leading" constant="12" id="VIS-Te-ouu"/>
                             <constraint firstAttribute="trailing" secondItem="V3o-Lx-mk3" secondAttribute="trailing" id="k37-de-95d"/>
                             <constraint firstItem="V3o-Lx-mk3" firstAttribute="leading" secondItem="YPl-qg-z8m" secondAttribute="leading" id="uCK-NJ-zvV"/>
@@ -84,6 +84,7 @@
             <size key="customSize" width="216" height="305"/>
             <connections>
                 <outlet property="activityIndicator" destination="TWF-Ab-6xk" id="NH7-hJ-d1z"/>
+                <outlet property="imageBackgroundView" destination="V3o-Lx-mk3" id="kgL-w7-QsZ"/>
                 <outlet property="imageView" destination="ffo-53-3Zq" id="VsA-tm-Iw4"/>
                 <outlet property="subtitleLabel" destination="v6x-BV-xwg" id="OVH-dL-7x7"/>
                 <outlet property="titleLabel" destination="RGz-q4-o20" id="IIm-X9-BfX"/>

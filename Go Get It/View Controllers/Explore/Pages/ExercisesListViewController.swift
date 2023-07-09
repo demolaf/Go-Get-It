@@ -21,6 +21,31 @@ class ExercisesListViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
+        let text = "Exercises"
+        
+        let titleRange = text.range(of: text)!
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)], range: NSRange(titleRange, in: text))
+        
+        let textLabel = UILabel()
+        textLabel.attributedText  = attributedString
+        textLabel.textAlignment = .center
+        
+        //Stack View
+        let stackView   = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis  = NSLayoutConstraint.Axis.horizontal
+        stackView.distribution  = UIStackView.Distribution.equalSpacing
+        stackView.alignment = UIStackView.Alignment.center
+        stackView.spacing = 12.0
+        stackView.heightAnchor.constraint(equalToConstant: 24).isActive = true
+        
+        stackView.addArrangedSubview(textLabel)
+        
+        navigationItem.titleView = stackView
+        
         setup()
     }
     

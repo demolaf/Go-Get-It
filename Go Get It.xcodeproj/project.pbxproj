@@ -31,6 +31,11 @@
 		7E219ECA2A59B96B008D2396 /* ExerciseForBodyPartResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EC92A59B96B008D2396 /* ExerciseForBodyPartResponse.swift */; };
 		7E219ECC2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ECB2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift */; };
 		7E219ED22A59F77A008D2396 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ED12A59F77A008D2396 /* UIImage+Gif.swift */; };
+		7E219ED52A5A368F008D2396 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ED42A5A368F008D2396 /* DataController.swift */; };
+		7E219ED72A5A4281008D2396 /* ActivityMO+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ED62A5A4281008D2396 /* ActivityMO+Extensions.swift */; };
+		7E219ED92A5A4304008D2396 /* ProgramMO+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219ED82A5A4304008D2396 /* ProgramMO+Extensions.swift */; };
+		7E219EDB2A5A4329008D2396 /* ReminderMO+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EDA2A5A4329008D2396 /* ReminderMO+Extensions.swift */; };
+		7E219EDD2A5A450D008D2396 /* ActivityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E219EDC2A5A450D008D2396 /* ActivityAPI.swift */; };
 		7E567BF62A54AC1600A67D8B /* ActivityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BF52A54AC1600A67D8B /* ActivityDataModel.swift */; };
 		7E567BF92A54ACA800A67D8B /* ProgramDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BF82A54ACA800A67D8B /* ProgramDataModel.swift */; };
 		7E567BFB2A54AD8D00A67D8B /* ActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E567BFA2A54AD8D00A67D8B /* ActivityType.swift */; };
@@ -111,6 +116,11 @@
 		7E219EC92A59B96B008D2396 /* ExerciseForBodyPartResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseForBodyPartResponse.swift; sourceTree = "<group>"; };
 		7E219ECB2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesForBodyPartViewController.swift; sourceTree = "<group>"; };
 		7E219ED12A59F77A008D2396 /* UIImage+Gif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
+		7E219ED42A5A368F008D2396 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		7E219ED62A5A4281008D2396 /* ActivityMO+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityMO+Extensions.swift"; sourceTree = "<group>"; };
+		7E219ED82A5A4304008D2396 /* ProgramMO+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProgramMO+Extensions.swift"; sourceTree = "<group>"; };
+		7E219EDA2A5A4329008D2396 /* ReminderMO+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReminderMO+Extensions.swift"; sourceTree = "<group>"; };
+		7E219EDC2A5A450D008D2396 /* ActivityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAPI.swift; sourceTree = "<group>"; };
 		7E567BF52A54AC1600A67D8B /* ActivityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataModel.swift; sourceTree = "<group>"; };
 		7E567BF82A54ACA800A67D8B /* ProgramDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDataModel.swift; sourceTree = "<group>"; };
 		7E567BFA2A54AD8D00A67D8B /* ActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityType.swift; sourceTree = "<group>"; };
@@ -289,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				7E219EC22A59AE53008D2396 /* ExploreAPI.swift */,
+				7E219EDC2A5A450D008D2396 /* ActivityAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -367,6 +378,24 @@
 			path = Modals;
 			sourceTree = "<group>";
 		};
+		7E219ED32A5A343A008D2396 /* Managed Object Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E219ED62A5A4281008D2396 /* ActivityMO+Extensions.swift */,
+				7E219ED82A5A4304008D2396 /* ProgramMO+Extensions.swift */,
+				7E219EDA2A5A4329008D2396 /* ReminderMO+Extensions.swift */,
+			);
+			path = "Managed Object Extensions";
+			sourceTree = "<group>";
+		};
+		7E219EDE2A5A52D6008D2396 /* Repository Provider */ = {
+			isa = PBXGroup;
+			children = (
+				7E8F9C322A56238200077A80 /* RepositoryProvider.swift */,
+			);
+			path = "Repository Provider";
+			sourceTree = "<group>";
+		};
 		7E567BF42A54AB4A00A67D8B /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -402,12 +431,14 @@
 			path = Activity;
 			sourceTree = "<group>";
 		};
-		7E567C062A54D73000A67D8B /* Core Data */ = {
+		7E567C062A54D73000A67D8B /* Local Storage */ = {
 			isa = PBXGroup;
 			children = (
+				7E219ED32A5A343A008D2396 /* Managed Object Extensions */,
 				7E567C072A54D75600A67D8B /* GoGetIt.xcdatamodeld */,
+				7E219ED42A5A368F008D2396 /* DataController.swift */,
 			);
-			path = "Core Data";
+			path = "Local Storage";
 			sourceTree = "<group>";
 		};
 		7E5A69BC2A3AB73B00381A17 /* Views */ = {
@@ -575,7 +606,7 @@
 			children = (
 				7E7054302A38A0250074D13A /* Model */,
 				7E219EB82A59A0A8008D2396 /* Networking */,
-				7E567C062A54D73000A67D8B /* Core Data */,
+				7E567C062A54D73000A67D8B /* Local Storage */,
 				7E95AD9F2A41117B0044390F /* Repositories */,
 			);
 			path = Data;
@@ -593,11 +624,11 @@
 		7E95AD9F2A41117B0044390F /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				7E219EDE2A5A52D6008D2396 /* Repository Provider */,
 				7E219EAE2A58EA7D008D2396 /* Explore */,
 				7E8F9C272A55B2CB00077A80 /* Reminders */,
 				7E567C012A54B47500A67D8B /* Activity */,
 				7E95AD9E2A4111100044390F /* Authentication */,
-				7E8F9C322A56238200077A80 /* RepositoryProvider.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -784,6 +815,7 @@
 			files = (
 				7E219ED22A59F77A008D2396 /* UIImage+Gif.swift in Sources */,
 				7E567C032A54B4A400A67D8B /* ActivityRepository.swift in Sources */,
+				7E219EDB2A5A4329008D2396 /* ReminderMO+Extensions.swift in Sources */,
 				7EA8D0772A38E93E00C9C1B6 /* LoginViewController.swift in Sources */,
 				7E567C052A54B97B00A67D8B /* ActivityRepositoryImpl.swift in Sources */,
 				7E20636C2A572B0A007FBCB0 /* CustomCollectionViewCell.swift in Sources */,
@@ -795,6 +827,7 @@
 				7EF4ADD72A3803B90039C326 /* HeaderView.swift in Sources */,
 				7EE4E74A2A37F16700B1AE5D /* UIViewControllerExtension.swift in Sources */,
 				7E219EAA2A58CADA008D2396 /* NutritionViewController.swift in Sources */,
+				7E219ED52A5A368F008D2396 /* DataController.swift in Sources */,
 				7E98DD9F2A3AA0E90080E33A /* MainTabViewController.swift in Sources */,
 				7E5A69CB2A3BFA9F00381A17 /* CreateActivityViewController.swift in Sources */,
 				7E2063642A56CC74007FBCB0 /* TableView+Extensions.swift in Sources */,
@@ -817,9 +850,11 @@
 				7E70543A2A38BC080074D13A /* Images.swift in Sources */,
 				7E70542F2A3899B60074D13A /* OnboardingPageViewController.swift in Sources */,
 				7E219ECC2A59DE8F008D2396 /* ExercisesForBodyPartViewController.swift in Sources */,
+				7E219ED92A5A4304008D2396 /* ProgramMO+Extensions.swift in Sources */,
 				7E5A69CE2A3BFB3700381A17 /* ExploreViewController.swift in Sources */,
 				7E567C092A54D75600A67D8B /* GoGetIt.xcdatamodeld in Sources */,
 				7E8652482A3424BE00E6CD03 /* SceneDelegate.swift in Sources */,
+				7E219EDD2A5A450D008D2396 /* ActivityAPI.swift in Sources */,
 				7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */,
 				7E8F9C2B2A55B2F400077A80 /* RemindersRepositoryImpl.swift in Sources */,
 				7E219EC32A59AE53008D2396 /* ExploreAPI.swift in Sources */,
@@ -832,6 +867,7 @@
 				7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */,
 				7E219EB02A58EA9A008D2396 /* ExploreRepository.swift in Sources */,
 				7E219EBD2A59A2BA008D2396 /* APIClient.swift in Sources */,
+				7E219ED72A5A4281008D2396 /* ActivityMO+Extensions.swift in Sources */,
 				7E219EC82A59B79B008D2396 /* ExercisesBodyPartListResponse.swift in Sources */,
 				7E2063682A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift in Sources */,
 				7E219EB52A58EAE0008D2396 /* ExploreListDataModel.swift in Sources */,

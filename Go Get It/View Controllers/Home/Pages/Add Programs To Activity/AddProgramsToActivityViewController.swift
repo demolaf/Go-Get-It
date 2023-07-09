@@ -7,24 +7,26 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class AddProgramsToActivityViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
     @IBOutlet weak var programsBodyView: UIView!
     @IBOutlet weak var programsTableView: UITableView!
     
-    var activity: ActivityDataModel!
+    var activity: ActivityMO!
     var activityRepository: ActivityRepository!
+    var fetchedResultsController: NSFetchedResultsController<ProgramMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let imageView = UIImageView()
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1/1).isActive = true
-        imageView.image = activity.activityType.info.image?.withRenderingMode(.alwaysTemplate)
+        imageView.image = ActivityType(rawValue: Int(activity.type))!.info.image?.withRenderingMode(.alwaysTemplate)
         imageView.tintColor = .white
         
-        let text = activity.activityTitle
+        let text = activity.title ?? ""
         
         let titleRange = text.range(of: text)!
         
@@ -55,6 +57,7 @@ class AddProgramsToActivityViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         
         postInit()
+        setupFetchedResultsController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +70,22 @@ class AddProgramsToActivityViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    func setupFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<ProgramMO> = ProgramMO.fetchRequest()
+        let predicate = NSPredicate(format: "activity == %@", activity)
+        fetchRequest.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
     
     @objc func backButtonPressed() {
@@ -127,39 +146,39 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.sectionHeaderTopPadding = 0
         
-        if !activity.programs.isEmpty {
-            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProgramsSection") as! CustomTableViewHeaderFooter
-            
-            let text = "Programs"
-            let titleRange = text.range(of: text)!
-            let attributedString = NSMutableAttributedString(string: text)
-            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
-            view.title.attributedText = attributedString
-            
-            return view
+        if (fetchedResultsController.fetchedObjects?.isEmpty ?? false) {
+            return nil
         }
         
-        return UIView()
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ProgramsSection") as! CustomTableViewHeaderFooter
+        
+        let text = "Programs"
+        let titleRange = text.range(of: text)!
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+        view.title.attributedText = attributedString
+        
+        return view
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if activity.programs.isEmpty {
+        if fetchedResultsController.fetchedObjects?.isEmpty ?? false {
             tableView.setEmptyView(title: "You haven't created any programs yet.", message: "Create programs using the \"+\" button at the bottom")
         }
         else {
             tableView.restore()
         }
-        return activity.programs.count
+        return fetchedResultsController.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProgramsCell") as! ActivityTableViewCell
         
-        let program = activity.programs[indexPath.row]
-        
-        cell.programImageView.image = program.activityType.info.image
-        cell.imageCircleView.backgroundColor = program.activityType.info.color
-        cell.programTitleLabel.text = program.programTitle
+        let program = fetchedResultsController.object(at: indexPath)
+        let activityType = ActivityType(rawValue: Int(program.activityType))!
+        cell.programImageView.image = activityType.info.image
+        cell.imageCircleView.backgroundColor = activityType.info.color
+        cell.programTitleLabel.text = program.title
         cell.programSubtitleLabel.text = "\(program.reps) reps x \(program.sets) sets"
         
         return cell
@@ -174,6 +193,47 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 150
     }
+}
+
+extension AddProgramsToActivityViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            programsTableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            programsTableView.deleteRows(at: [indexPath!], with: .fade)
+            break
+        case .update:
+            programsTableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            programsTableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert: programsTableView.insertSections(indexSet, with: .fade)
+        case .delete: programsTableView.deleteSections(indexSet, with: .fade)
+        case .update, .move:
+            fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
+        @unknown default:
+            fatalError()
+        }
+    }
+
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        programsTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        programsTableView.endUpdates()
+    }
+    
 }
 
 //

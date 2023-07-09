@@ -26,7 +26,7 @@ class CreateProgramsViewController: UIViewController {
     //TODO: Default to using the selected activity type
     // when creating the activity
     var activityRepository: ActivityRepository!
-    var activity: ActivityDataModel!
+    var activity: ActivityMO!
     var selectedCategoryActivityType: ActivityType!
     var dismissCompletionHandler: (() -> Void)!
     
@@ -81,7 +81,7 @@ class CreateProgramsViewController: UIViewController {
             return
         }
         
-        activityRepository.createWorkoutProgram(activity, title: title, programActivityType: selectedCategoryActivityType ?? activity.activityType, sets: Int(sets) ?? 0, reps: Int(reps) ?? 0, restTime: Double(restTime) ?? 0, totalProgramTime: Double(totalTime) ?? 0)
+        activityRepository.createWorkoutProgram(activity, title: title, programActivityType: selectedCategoryActivityType ?? ActivityType(rawValue: Int(activity.type))!, sets: Int(sets) ?? 0, reps: Int(reps) ?? 0, restTime: Double(restTime) ?? 0, totalProgramTime: Double(totalTime) ?? 0)
         
         dismiss(animated: true, completion: dismissCompletionHandler)
     }
