@@ -10,7 +10,6 @@ import UIKit
 
 enum AuthType: Int {
     case google = 0
-    case apple
     case facebook
 }
 
@@ -39,9 +38,6 @@ class LoginViewController: UIViewController {
                     self.navigateToHome()
                 }
             }
-        case .apple:
-            authenticationRepository.signInWithApple()
-            navigateToHome()
         case .facebook:
             authenticationRepository.signInWithFacebook()
             navigateToHome()
@@ -53,16 +49,3 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(homeVC, animated: true)
     }
 }
-
-#if DEBUG
-import SwiftUI
-
-@available(iOS 13, *)
-struct LoginViewController_Preview: PreviewProvider {
-    static var previews: some View {
-        // view controller using programmatic UI
-        // Assuming your storyboard file name is "Main"
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "LoginViewController").showPreview()
-    }
-}
-#endif

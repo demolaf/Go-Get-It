@@ -166,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Pkj-yl-xRy">
-                                <rect key="frame" x="36" y="543.66666666666663" width="321" height="250.33333333333337"/>
+                                <rect key="frame" x="36" y="630" width="321" height="116"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M69-si-JDK">
                                         <rect key="frame" x="0.0" y="0.0" width="321" height="44"/>
@@ -186,24 +186,8 @@
                                             <action selector="loginButtonTapped:" destination="6PQ-w5-0nF" eventType="touchUpInside" id="Rzj-Xk-P1j"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66T-aJ-2ju">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3t-D5-6H0">
                                         <rect key="frame" x="0.0" y="72" width="321" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="xTS-57-a3Q"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="apple" title="Sign in with Apple" imagePadding="12" cornerStyle="large">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="labelColor"/>
-                                            </backgroundConfiguration>
-                                            <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="loginButtonTapped:" destination="6PQ-w5-0nF" eventType="touchUpInside" id="Pwx-1l-D1j"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3t-D5-6H0">
-                                        <rect key="frame" x="0.0" y="144" width="321" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="bIQ-yg-XEf"/>
                                         </constraints>
@@ -218,15 +202,10 @@
                                             <action selector="loginButtonTapped:" destination="6PQ-w5-0nF" eventType="touchUpInside" id="IeP-qn-FgK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SXU-QS-0wd">
-                                        <rect key="frame" x="0.0" y="216" width="321" height="34.333333333333343"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Already have an account? Login"/>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness without limits" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-Dr-rH7">
-                                <rect key="frame" x="36" y="419" width="321" height="28.666666666666686"/>
+                                <rect key="frame" x="36" y="505.33333333333331" width="321" height="28.666666666666686"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -235,7 +214,7 @@
                         <viewLayoutGuide key="safeArea" id="5KN-UJ-0Gm"/>
                         <color key="backgroundColor" name="login"/>
                         <constraints>
-                            <constraint firstItem="5KN-UJ-0Gm" firstAttribute="bottom" secondItem="Pkj-yl-xRy" secondAttribute="bottom" constant="24" id="9ym-PS-PAo"/>
+                            <constraint firstItem="5KN-UJ-0Gm" firstAttribute="bottom" secondItem="Pkj-yl-xRy" secondAttribute="bottom" constant="72" id="9ym-PS-PAo"/>
                             <constraint firstItem="Pkj-yl-xRy" firstAttribute="leading" secondItem="5KN-UJ-0Gm" secondAttribute="leading" constant="36" id="AfF-aK-3PS"/>
                             <constraint firstItem="pjs-Dr-rH7" firstAttribute="leading" secondItem="5KN-UJ-0Gm" secondAttribute="leading" constant="36" id="Ekb-Gf-sN5"/>
                             <constraint firstItem="5KN-UJ-0Gm" firstAttribute="trailing" secondItem="pjs-Dr-rH7" secondAttribute="trailing" constant="36" id="Fbr-6F-cQl"/>
@@ -2291,7 +2270,6 @@
     </designables>
     <resources>
         <image name="activity" width="32" height="32"/>
-        <image name="apple" width="32" height="32"/>
         <image name="arm" width="32" height="32"/>
         <image name="arrow.forward" catalog="system" width="128" height="95"/>
         <image name="books.vertical.fill" catalog="system" width="128" height="110"/>

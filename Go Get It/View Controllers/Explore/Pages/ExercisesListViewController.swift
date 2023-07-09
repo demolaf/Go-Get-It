@@ -51,8 +51,6 @@ class ExercisesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        fetchBodyPartList()
     }
 }
 
@@ -60,6 +58,8 @@ extension ExercisesListViewController: UITableViewDelegate, UITableViewDataSourc
     func setup() {
         setupTableView()
         setupViewAppearance()
+        
+        fetchBodyPartList()
     }
     
     func fetchBodyPartList() {

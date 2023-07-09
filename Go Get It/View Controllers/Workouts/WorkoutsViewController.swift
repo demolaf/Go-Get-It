@@ -46,10 +46,7 @@ class WorkoutsViewController: UIViewController {
         
         navigationItem.titleView = stackView
         
-        //        navigationController?.navigationBar.standardAppearance.shadowColor = .clear
-        //        navigationController?.navigationBar.scrollEdgeAppearance?.shadowColor = .clear
-        //
-        postInit()
+        setup()
     }
     
     func setupWorkoutsFetchedResultsController() {
@@ -73,7 +70,7 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Move these methods into an extension
     
-    func postInit() {
+    func setup() {
         activityRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.activityRepository
         
         setupTableView()
@@ -139,7 +136,7 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let sectionInfo = workoutsFetchedResultsController?.sections?[section] else {
+        guard (workoutsFetchedResultsController?.sections?[section]) != nil else {
             return UIView()
         }
         

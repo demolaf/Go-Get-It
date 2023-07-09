@@ -67,6 +67,7 @@
 		7E8F9C2E2A56148900077A80 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2C2A56148900077A80 /* ActivityTableViewCell.swift */; };
 		7E8F9C2F2A56148900077A80 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */; };
 		7E8F9C332A56238200077A80 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C322A56238200077A80 /* RepositoryProvider.swift */; };
+		7E948B042A5B535B0042E46F /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E948B032A5B535B0042E46F /* ListDataSource.swift */; };
 		7E95AD9B2A4108080044390F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7E95AD9A2A4108080044390F /* GoogleSignIn */; };
 		7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */; };
 		7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */; };
@@ -154,6 +155,7 @@
 		7E8F9C2C2A56148900077A80 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		7E8F9C322A56238200077A80 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		7E948B032A5B535B0042E46F /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
 		7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
 		7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		7E98DD9E2A3AA0E90080E33A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				7E219ED32A5A343A008D2396 /* Managed Object Extensions */,
 				7E567C072A54D75600A67D8B /* GoGetIt.xcdatamodeld */,
 				7E219ED42A5A368F008D2396 /* DataController.swift */,
+				7E948B032A5B535B0042E46F /* ListDataSource.swift */,
 			);
 			path = "Local Storage";
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				7E7054382A38BA320074D13A /* Colors.swift in Sources */,
 				7EF4ADD72A3803B90039C326 /* HeaderView.swift in Sources */,
 				7EE4E74A2A37F16700B1AE5D /* UIViewControllerExtension.swift in Sources */,
+				7E948B042A5B535B0042E46F /* ListDataSource.swift in Sources */,
 				7E219EAA2A58CADA008D2396 /* NutritionViewController.swift in Sources */,
 				7E219ED52A5A368F008D2396 /* DataController.swift in Sources */,
 				7E98DD9F2A3AA0E90080E33A /* MainTabViewController.swift in Sources */,
