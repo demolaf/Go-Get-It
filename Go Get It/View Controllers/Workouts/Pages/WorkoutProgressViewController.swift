@@ -39,6 +39,24 @@ class WorkoutProgressViewController: UIViewController {
         programsFRC.delegate = self
         do {
             try programsFRC.performFetch()
+            
+            var progress = 0
+            var completedPrograms = 0
+            
+            if let programs = programsFRC.fetchedObjects {
+                programs.forEach { program in
+                    if program.completed {
+                        completedPrograms += 1
+                    }
+                }
+                
+                progress = completedPrograms / (programs.count)
+            }
+            
+            //
+            progressBar.setProgress(to: Double(progress), animate: true)
+            
+            setupProgressBar(progress: String(progress * 100))
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -49,7 +67,6 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
     
     func setup() {
         setupNavigationBar()
-        setupProgressBar()
         setupProgressMessageTextLabel()
         setupWorkoutsBodyView()
         setupTableView()
@@ -139,7 +156,7 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
         progressMessageTextLabel.numberOfLines = 0
     }
     
-    private func setupProgressBar() {
+    private func setupProgressBar(progress: String?) {
         //
         let percentFormatter = NumberFormatter()
         percentFormatter.numberStyle = NumberFormatter.Style.percent
@@ -147,7 +164,7 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
         percentFormatter.maximumFractionDigits = 0
         
         //
-        let number = "70"
+        let number = progress ?? ""
         let percentText = "%"
         
         let text = percentFormatter.string(from: Int(number)! as NSNumber)!
@@ -166,9 +183,6 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
         //
         progressBar.thumbLayer.strokeColor = UIColor.green.cgColor
         progressBar.trackLayer.strokeColor = UIColor.black.cgColor
-        
-        //
-        progressBar.setProgress(to: 0.7, animate: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
