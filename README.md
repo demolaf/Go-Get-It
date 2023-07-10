@@ -3,9 +3,6 @@
 <img width="200" src="ReadMeAssets/appicon.png" alt="App Icon">
 
 <p align="center">
-
-<img width="100" src="" alt="">
-
 </p>
 
 <img width="200" src="ReadMeAssets/swiftlogo.png" alt="Swift Logo">
