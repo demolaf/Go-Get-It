@@ -8,12 +8,15 @@
 import Foundation
 
 class RemindersRepositoryImpl: RemindersRepository {
+    private let remindersAPI: RemindersAPI
+    let dataController: DataController
     
-    var reminders = [ReminderMO]()
+    init(remindersAPI: RemindersAPI) {
+        self.remindersAPI = remindersAPI
+        self.dataController = remindersAPI.dataController
+    }
     
     func createReminder(title: String, time: Date?, notifyMe: Bool = false, completed: Bool = false) {
-//        let newReminder = ReminderMO(reminderTitle: title, time: time, notifyMe: notifyMe, completed: completed)
-//
-//        reminders.append(newReminder)
+        remindersAPI.createReminder(title: title, time: time, notifyMe: notifyMe, completed: completed)
     }
 }

@@ -16,7 +16,7 @@ class AddProgramsToActivityViewController: UIViewController {
     
     var activity: ActivityMO!
     var activityRepository: ActivityRepository!
-    var fetchedResultsController: NSFetchedResultsController<ProgramMO>!
+    var programsFRC: NSFetchedResultsController<ProgramMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,10 +79,10 @@ class AddProgramsToActivityViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
+        programsFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        programsFRC.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try programsFRC.performFetch()
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -146,7 +146,7 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.sectionHeaderTopPadding = 0
         
-        if (fetchedResultsController.fetchedObjects?.isEmpty ?? false) {
+        if (programsFRC.fetchedObjects?.isEmpty ?? false) {
             return nil
         }
         
@@ -162,19 +162,19 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if fetchedResultsController.fetchedObjects?.isEmpty ?? false {
+        if programsFRC.fetchedObjects?.isEmpty ?? false {
             tableView.setEmptyView(title: "You haven't created any programs yet.", message: "Create programs using the \"+\" button at the bottom")
         }
         else {
             tableView.restore()
         }
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        return programsFRC.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProgramsCell") as! ActivityTableViewCell
         
-        let program = fetchedResultsController.object(at: indexPath)
+        let program = programsFRC.object(at: indexPath)
         let activityType = ActivityType(rawValue: Int(program.activityType))!
         cell.programImageView.image = activityType.info.image
         cell.imageCircleView.backgroundColor = activityType.info.color

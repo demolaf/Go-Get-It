@@ -71,7 +71,8 @@ class AuthenticationRepositoryImpl: AuthenticationRepository {
                     return
                 }
                 
-                print("\(result.user.email ?? "N/A")")
+                // TODO: Save auth details and persist in-app using UserDefaults
+                print("email: \(result.user.email ?? "N/A"), \(result.user.displayName ?? "")")
                 DispatchQueue.main.async {
                     completion(true, nil)
                 }

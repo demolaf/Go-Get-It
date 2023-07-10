@@ -56,6 +56,7 @@
 		7E7054382A38BA320074D13A /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7054372A38BA320074D13A /* Colors.swift */; };
 		7E70543A2A38BC080074D13A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7054392A38BC080074D13A /* Images.swift */; };
 		7E70543C2A38C16A0074D13A /* OnboardingInfoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E70543B2A38C16A0074D13A /* OnboardingInfoList.swift */; };
+		7E7E38DA2A5C10C500274C19 /* RemindersAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7E38D92A5C10C500274C19 /* RemindersAPI.swift */; };
 		7E8652462A3424BE00E6CD03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8652452A3424BE00E6CD03 /* AppDelegate.swift */; };
 		7E8652482A3424BE00E6CD03 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8652472A3424BE00E6CD03 /* SceneDelegate.swift */; };
 		7E86524A2A3424BE00E6CD03 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8652492A3424BE00E6CD03 /* OnboardingViewController.swift */; };
@@ -68,6 +69,7 @@
 		7E8F9C2F2A56148900077A80 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */; };
 		7E8F9C332A56238200077A80 /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8F9C322A56238200077A80 /* RepositoryProvider.swift */; };
 		7E948B042A5B535B0042E46F /* ListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E948B032A5B535B0042E46F /* ListDataSource.swift */; };
+		7E948B062A5B54A90042E46F /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E948B052A5B54A90042E46F /* AuthAPI.swift */; };
 		7E95AD9B2A4108080044390F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7E95AD9A2A4108080044390F /* GoogleSignIn */; };
 		7E95ADA12A41119A0044390F /* AuthenticationRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */; };
 		7E95ADA42A4112C50044390F /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */; };
@@ -83,6 +85,7 @@
 		7EA8D0882A38F1DD00C9C1B6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7EA8D0872A38F1DD00C9C1B6 /* FirebaseStorage */; };
 		7EA8D08B2A390ABC00C9C1B6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */; };
 		7EBDD30E2A4E429B006268AF /* WorkoutProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBDD30D2A4E429B006268AF /* WorkoutProgressViewController.swift */; };
+		7EBEFEE32A5C09D500473ED2 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBEFEE22A5C09D500473ED2 /* Environment.swift */; };
 		7ED191C02A524C3E0010B8B6 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ED191BF2A524C3E0010B8B6 /* CircularProgressBar.swift */; };
 		7EE4E74A2A37F16700B1AE5D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE4E7492A37F16700B1AE5D /* UIViewControllerExtension.swift */; };
 		7EE4E74C2A37F19100B1AE5D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EE4E74B2A37F19100B1AE5D /* UIViewExtension.swift */; };
@@ -142,6 +145,7 @@
 		7E7054372A38BA320074D13A /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7E7054392A38BC080074D13A /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		7E70543B2A38C16A0074D13A /* OnboardingInfoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingInfoList.swift; sourceTree = "<group>"; };
+		7E7E38D92A5C10C500274C19 /* RemindersAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersAPI.swift; sourceTree = "<group>"; };
 		7E8652422A3424BE00E6CD03 /* Go Get It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Go Get It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E8652452A3424BE00E6CD03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E8652472A3424BE00E6CD03 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 		7E8F9C2D2A56148900077A80 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
 		7E8F9C322A56238200077A80 /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
 		7E948B032A5B535B0042E46F /* ListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDataSource.swift; sourceTree = "<group>"; };
+		7E948B052A5B54A90042E46F /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
 		7E95ADA02A41119A0044390F /* AuthenticationRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryImpl.swift; sourceTree = "<group>"; };
 		7E95ADA32A4112C50044390F /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		7E98DD9E2A3AA0E90080E33A /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +168,8 @@
 		7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7EA8D08A2A390ABC00C9C1B6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		7EBDD30D2A4E429B006268AF /* WorkoutProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutProgressViewController.swift; sourceTree = "<group>"; };
+		7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		7EBEFEE22A5C09D500473ED2 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		7ED191BF2A524C3E0010B8B6 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		7EE4E7492A37F16700B1AE5D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		7EE4E74B2A37F19100B1AE5D /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -302,6 +309,8 @@
 			children = (
 				7E219EC22A59AE53008D2396 /* ExploreAPI.swift */,
 				7E219EDC2A5A450D008D2396 /* ActivityAPI.swift */,
+				7E948B052A5B54A90042E46F /* AuthAPI.swift */,
+				7E7E38D92A5C10C500274C19 /* RemindersAPI.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -582,6 +591,7 @@
 				7E7054312A38A0350074D13A /* View Controllers */,
 				7E8652532A3424BF00E6CD03 /* Info.plist */,
 				7EA8D0782A38EEFF00C9C1B6 /* GoogleService-Info.plist */,
+				7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */,
 			);
 			path = "Go Get It";
 			sourceTree = "<group>";
@@ -607,6 +617,7 @@
 		7E95AD9D2A4111090044390F /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				7EBEFEE12A5C09C300473ED2 /* Constants */,
 				7E7054302A38A0250074D13A /* Model */,
 				7E219EB82A59A0A8008D2396 /* Networking */,
 				7E567C062A54D73000A67D8B /* Local Storage */,
@@ -672,6 +683,14 @@
 				7ED191BC2A524C0D0010B8B6 /* Circular Progress Bar */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7EBEFEE12A5C09C300473ED2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				7EBEFEE22A5C09D500473ED2 /* Environment.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		7ED191BC2A524C0D0010B8B6 /* Circular Progress Bar */ = {
@@ -836,6 +855,7 @@
 				7E5A69CB2A3BFA9F00381A17 /* CreateActivityViewController.swift in Sources */,
 				7E2063642A56CC74007FBCB0 /* TableView+Extensions.swift in Sources */,
 				7E8F9C2E2A56148900077A80 /* ActivityTableViewCell.swift in Sources */,
+				7E948B062A5B54A90042E46F /* AuthAPI.swift in Sources */,
 				7E86524A2A3424BE00E6CD03 /* OnboardingViewController.swift in Sources */,
 				7E8F9C332A56238200077A80 /* RepositoryProvider.swift in Sources */,
 				7E567BFD2A54ADA200A67D8B /* ActivityModel.swift in Sources */,
@@ -849,6 +869,7 @@
 				7E5A69D12A3BFB7F00381A17 /* WorkoutsViewController.swift in Sources */,
 				7E219EBF2A59A2CA008D2396 /* APIClientImpl.swift in Sources */,
 				7E15DE4D2A3D259200CBA1B6 /* CustomSwitchView.swift in Sources */,
+				7EBEFEE32A5C09D500473ED2 /* Environment.swift in Sources */,
 				7E567BFB2A54AD8D00A67D8B /* ActivityType.swift in Sources */,
 				7E8652462A3424BE00E6CD03 /* AppDelegate.swift in Sources */,
 				7E70543A2A38BC080074D13A /* Images.swift in Sources */,
@@ -874,6 +895,7 @@
 				7E219ED72A5A4281008D2396 /* ActivityMO+Extensions.swift in Sources */,
 				7E219EC82A59B79B008D2396 /* ExercisesBodyPartListResponse.swift in Sources */,
 				7E2063682A56CCFB007FBCB0 /* CustomTableViewHeaderFooter.swift in Sources */,
+				7E7E38DA2A5C10C500274C19 /* RemindersAPI.swift in Sources */,
 				7E219EB52A58EAE0008D2396 /* ExploreListDataModel.swift in Sources */,
 				7E70543C2A38C16A0074D13A /* OnboardingInfoList.swift in Sources */,
 				7E5BB70F2A3E1BD90038D787 /* CreateProgramsViewController.swift in Sources */,
@@ -906,6 +928,7 @@
 /* Begin XCBuildConfiguration section */
 		7E8652542A3424BF00E6CD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -966,6 +989,7 @@
 		};
 		7E8652552A3424BF00E6CD03 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

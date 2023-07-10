@@ -17,7 +17,7 @@ class WorkoutsViewController: UIViewController {
     
     var activityRepository: ActivityRepository!
     
-    var workoutsFetchedResultsController: NSFetchedResultsController<ActivityMO>!
+    var workoutsFRC: NSFetchedResultsController<ActivityMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,10 +56,18 @@ class WorkoutsViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchRequest.sortDescriptors = [completedSortDescriptor, sortDescriptor]
         
-        workoutsFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: "completed", cacheName: nil)
-        workoutsFetchedResultsController.delegate = self
+        workoutsFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: "completed", cacheName: nil)
+        workoutsFRC.delegate = self
         do {
-            try workoutsFetchedResultsController.performFetch()
+            try workoutsFRC.performFetch()
+            
+            //TODO: this is here because if number of sections is set by FRC and there are no sections the function tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) will not be executed
+            if (workoutsFRC.fetchedObjects?.isEmpty ?? false) {
+                workoutsTableView.setEmptyView(title: "No workouts yet.", message: "Create workouts using the \"Start New Activity\" buttons on the home screen")
+            } else {
+                workoutsTableView.restore()
+            }
+            
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -118,25 +126,15 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     // MARK: Reminders Delegate & Datasource
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return workoutsFetchedResultsController.sections?.count ?? 0
+        return workoutsFRC.sections?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if workoutsFetchedResultsController.sections?[section].numberOfObjects == 0 {
-            tableView.setEmptyView(title: "No workouts yet.", message: "Create workouts using the \"Start New Activity\" buttons on the home screen")
-        }
-        else {
-            tableView.restore()
-        }
-        
-        guard let section = workoutsFetchedResultsController.sections?[section] else {
-            return 0
-        }
-        return section.numberOfObjects
+        return workoutsFRC.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard (workoutsFetchedResultsController?.sections?[section]) != nil else {
+        guard (workoutsFRC?.sections?[section]) != nil else {
             return UIView()
         }
         
@@ -166,7 +164,7 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutsCell") as! ActivityTableViewCell
         
-        guard let workout = self.workoutsFetchedResultsController?.object(at: indexPath) else {
+        guard let workout = self.workoutsFRC?.object(at: indexPath) else {
             fatalError("Attempt to configure cell without a managed object")
         }
         
@@ -182,7 +180,7 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workoutProgressVC = storyboard?.instantiateViewController(withIdentifier: "WorkoutProgressViewController") as! WorkoutProgressViewController
         
-        workoutProgressVC.activity =  workoutsFetchedResultsController.object(at: indexPath)
+        workoutProgressVC.activity =  workoutsFRC.object(at: indexPath)
         workoutProgressVC.dataController = self.activityRepository.dataController
         
         navigationController?.pushViewController(workoutProgressVC, animated: true)
@@ -218,7 +216,6 @@ extension WorkoutsViewController: NSFetchedResultsControllerDelegate {
             fatalError()
         }
     }
-    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         workoutsTableView.beginUpdates()

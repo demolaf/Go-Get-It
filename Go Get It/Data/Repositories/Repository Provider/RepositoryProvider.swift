@@ -17,6 +17,7 @@ struct RepositoryProvider  {
     private let dataController: DataController
     private let exploreAPI: ExploreAPI
     private let activityAPI: ActivityAPI
+    private let remindersAPI: RemindersAPI
     
     init() {
         //
@@ -27,11 +28,12 @@ struct RepositoryProvider  {
         //
         self.exploreAPI = ExploreAPI(apiClient: apiClient)
         self.activityAPI = ActivityAPI(dataController: dataController)
+        self.remindersAPI = RemindersAPI(dataController: dataController)
         
         //
         self.authRepository = AuthenticationRepositoryImpl()
         self.activityRepository = ActivityRepositoryImpl(activityAPI: activityAPI)
-        self.remindersRepository = RemindersRepositoryImpl()
+        self.remindersRepository = RemindersRepositoryImpl(remindersAPI: remindersAPI)
         self.exploreRepository = ExploreRepositoryImpl(exploreAPI: exploreAPI)
     }
 }

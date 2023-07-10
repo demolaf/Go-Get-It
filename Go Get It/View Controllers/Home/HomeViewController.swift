@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var bodyView: UIView!
@@ -15,6 +16,7 @@ class HomeViewController: UIViewController {
     
     var remindersRepository: RemindersRepository!
     var activityRepository: ActivityRepository!
+    var remindersFRC: NSFetchedResultsController<ReminderMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,23 @@ class HomeViewController: UIViewController {
         
         remindersRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.remindersRepository
         activityRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.activityRepository
+        
+        setupWorkoutsFetchedResultsController()
+    }
+    
+    func setupWorkoutsFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<ReminderMO> = ReminderMO.fetchRequest()
+        
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        remindersFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        remindersFRC.delegate = self
+        do {
+            try remindersFRC.performFetch()
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func startActivityButtonPressed(_ sender: UITapGestureRecognizer) {
@@ -100,27 +119,73 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Reminders Delegate & Datasource
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return remindersFRC.sections?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if remindersRepository.reminders.isEmpty {
-            tableView.setEmptyView(title: "No reminders yet.", message: "Create reminders using the \"+\" button at the corner")
-        }
-        else {
-            tableView.restore()
+        if (remindersFRC.fetchedObjects?.isEmpty ?? false) {
+            remindersTableView.setEmptyView(title: "No reminders yet.", message: "Create reminders using the \"+\" button at the corner")
+        } else {
+            remindersTableView.restore()
         }
         
-        return remindersRepository.reminders.count
+        return remindersFRC.sections?[section].numberOfObjects ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RemindersCell") as! RemindersTableViewCell
         
-//        let reminder = remindersRepository.reminders[indexPath.row]
-//
-//        cell.reminderLabel.text = reminder.reminderTitle
-//        cell.checkbox.isSelected = reminder.completed
-//
-//        cell.backgroundColor = .clear
+        let reminder = remindersFRC.object(at: indexPath)
+
+        cell.reminderLabel.text = reminder.title
+        cell.checkbox.isSelected = reminder.completed
+
+        cell.backgroundColor = .clear
         
         return cell
     }
 }
+
+extension HomeViewController: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            remindersTableView.insertRows(at: [newIndexPath!], with: .fade)
+            break
+        case .delete:
+            remindersTableView.deleteRows(at: [indexPath!], with: .fade)
+            break
+        case .update:
+            remindersTableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            remindersTableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        let indexSet = IndexSet(integer: sectionIndex)
+        switch type {
+        case .insert:
+            remindersTableView.insertSections(indexSet, with: .fade)
+        case .delete: remindersTableView.deleteSections(indexSet, with: .fade)
+        case .update, .move:
+            fatalError("Invalid change type in controller(_:didChange:atSectionIndex:for:). Only .insert or .delete should be possible.")
+        @unknown default:
+            fatalError()
+        }
+    }
+
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        remindersTableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        remindersTableView.endUpdates()
+    }
+    
+}
+

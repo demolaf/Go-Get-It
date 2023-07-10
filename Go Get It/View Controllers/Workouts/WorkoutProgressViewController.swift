@@ -17,7 +17,7 @@ class WorkoutProgressViewController: UIViewController {
     
     var activity: ActivityMO!
     var dataController: DataController!
-    var fetchedResultsController: NSFetchedResultsController<ProgramMO>!
+    var programsFRC: NSFetchedResultsController<ProgramMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +38,11 @@ class WorkoutProgressViewController: UIViewController {
         let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchRequest.sortDescriptors = [sortDescriptor]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        programsFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.viewContext, sectionNameKeyPath: nil, cacheName: nil)
         
-        fetchedResultsController.delegate = self
+        programsFRC.delegate = self
         do {
-            try fetchedResultsController.performFetch()
+            try programsFRC.performFetch()
         } catch {
             fatalError("The fetch could not be performed: \(error.localizedDescription)")
         }
@@ -176,44 +176,41 @@ extension WorkoutProgressViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if activity.programs.isEmpty {
-//            tableView.setEmptyView(title: "No programs yet.", message: "")
-//        }
-//        else {
-//            tableView.restore()
-//        }
-//        return activity.programs.count
-        if fetchedResultsController.fetchedObjects?.isEmpty ?? false {
+        if programsFRC.fetchedObjects?.isEmpty ?? false {
             tableView.setEmptyView(title: "You haven't created any programs yet.", message: "Create programs using the \"+\" button at the bottom")
         }
         else {
             tableView.restore()
         }
-        return fetchedResultsController.fetchedObjects?.count ?? 0
+        return programsFRC.fetchedObjects?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         tableView.sectionHeaderTopPadding = 0
         
-//        if !activity.programs.isEmpty {
-//            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CurrentWorkoutsSection") as! CustomTableViewHeaderFooter
-//
-//            let text = "Programs"
-//            let titleRange = text.range(of: text)!
-//            let attributedString = NSMutableAttributedString(string: text)
-//            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
-//            view.title.attributedText = attributedString
-//
-//            return view
-//        }
-//
+        guard (programsFRC?.sections?[section]) != nil else {
+            return UIView()
+        }
+        
+        if !(programsFRC.fetchedObjects?.isEmpty ?? false) {
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CurrentWorkoutsSection") as! CustomTableViewHeaderFooter
+
+            let text = "Programs"
+            let titleRange = text.range(of: text)!
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16, weight: .medium)], range: NSRange(titleRange, in: text))
+            view.title.attributedText = attributedString
+
+            return view
+        }
+
         return UIView()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WorkoutsCell") as! ActivityTableViewCell
         
-        let program = fetchedResultsController.object(at: indexPath)
+        let program = programsFRC.object(at: indexPath)
         
         let activityType = ActivityType(rawValue: Int(program.activityType))!
         cell.imageCircleView.backgroundColor = activityType.info.color

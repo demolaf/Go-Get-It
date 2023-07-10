@@ -8,7 +8,5 @@
 import Foundation
 
 protocol RemindersRepository {
-    var reminders: [ReminderMO] { get }
-    
     func createReminder(title: String, time: Date?, notifyMe: Bool, completed: Bool)
 }

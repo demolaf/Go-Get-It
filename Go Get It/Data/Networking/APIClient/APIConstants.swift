@@ -10,7 +10,7 @@ import Foundation
 // Keep the endpoints
 class APIConstants {
     struct Auth {
-        static let rapidAPIKey = "4406c56b11msha8e1a74bfecabbfp18d5bajsn0159cc656745"
+        static let rapidAPIKey = Environment.rapidApiKey
     }
     
     enum Endpoints {
