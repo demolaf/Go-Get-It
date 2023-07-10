@@ -27,6 +27,7 @@ It also has features that help people find new exercises to add to their  routin
 It really is a limitless app that can be as wide as it gets.
 
 </p>
+
 ## Libraries Used
 - Firebase Authentication
 - UIKit
