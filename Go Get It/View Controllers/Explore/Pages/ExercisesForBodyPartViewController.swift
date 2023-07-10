@@ -141,4 +141,10 @@ extension ExercisesForBodyPartViewController: UICollectionViewDelegate, UICollec
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let exerciseVideoVC = ExerciseVideoViewController()
+        exerciseVideoVC.youtubeSearchQuery = exercsisesForBodyPart[indexPath.row].name
+        navigationController?.pushViewController(exerciseVideoVC, animated: true)
+    }
 }

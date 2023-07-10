@@ -16,18 +16,19 @@ class HomeViewController: UIViewController {
     
     var remindersRepository: RemindersRepository!
     var activityRepository: ActivityRepository!
+    var authenticationRepository: AuthenticationRepository!
     var remindersFRC: NSFetchedResultsController<ReminderMO>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        remindersRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.remindersRepository
+        activityRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.activityRepository
+        authenticationRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.authRepository
         
         remindersTableView.delegate = self
         remindersTableView.dataSource = self
         
-        postInit()
-        
-        remindersRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.remindersRepository
-        activityRepository = (UIApplication.shared.delegate as! AppDelegate).repositoryProvider.activityRepository
+        setup()
         
         setupWorkoutsFetchedResultsController()
     }
@@ -77,8 +78,15 @@ class HomeViewController: UIViewController {
         createReminderVC.dismissCompletionHandler = {
             self.remindersTableView.reloadData()
         }
-
+        
         present(createReminderVC, animated: true)
+    }
+    
+    @IBAction func logout(_ sender: UIButton) {
+        //TODO: navigate to onboarding on completion
+        authenticationRepository.signOut()
+        let onboardingPageVC = storyboard?.instantiateViewController(withIdentifier: "OnboardingPageViewController") as! OnboardingPageViewController
+        navigationController?.pushViewController(onboardingPageVC, animated: true)
     }
 }
 
@@ -86,7 +94,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Move these methods into an extension
     
-    func postInit() {
+    func setup() {
         setupViewAppearance()
         setGreetingText()
     }
@@ -98,13 +106,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     private func setGreetingText() {
-        let title = "Hi Ademola"
+        var title = ""
+        
+        if let authUserData = authenticationRepository.getAuthUserData() {
+            title = "Hi \(authUserData.name.components(separatedBy: " ")[0])"
+        } else {
+            title = "Hi"
+        }
+        
         let subtitle = "Get pumped!"
         
         let greetingText = "\(title),\n\(subtitle)"
         
         let titleRange = greetingText.range(of: title)!
-
+        
         let subtitleRange = greetingText.range(of: subtitle)!
         
         let attributedString = NSMutableAttributedString(string: greetingText)
@@ -113,8 +128,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         attributedString.addAttributes([NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.systemFont(ofSize: 24, weight: UIFont.Weight(600))], range: NSRange(subtitleRange, in: greetingText))
         
-        headerLabel.attributedText = attributedString
-        headerLabel.numberOfLines = 2
+        self.headerLabel.attributedText = attributedString
+        self.headerLabel.numberOfLines = 2
     }
     
     // MARK: Reminders Delegate & Datasource
@@ -125,7 +140,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (remindersFRC.fetchedObjects?.isEmpty ?? false) {
-            remindersTableView.setEmptyView(title: "No reminders yet.", message: "Create reminders using the \"+\" button at the corner")
+            remindersTableView.setEmptyView(title: "No reminders yet", message: "Create reminders using the \"+\" button at the corner")
         } else {
             remindersTableView.restore()
         }
@@ -137,10 +152,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RemindersCell") as! RemindersTableViewCell
         
         let reminder = remindersFRC.object(at: indexPath)
-
+        
         cell.reminderLabel.text = reminder.title
         cell.checkbox.isSelected = reminder.completed
-
+        
         cell.backgroundColor = .clear
         
         return cell
@@ -177,7 +192,7 @@ extension HomeViewController: NSFetchedResultsControllerDelegate {
             fatalError()
         }
     }
-
+    
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         remindersTableView.beginUpdates()

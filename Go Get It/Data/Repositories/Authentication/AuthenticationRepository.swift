@@ -20,4 +20,10 @@ protocol AuthenticationRepository {
     
     //
     func signOut()
+    
+    //
+    func getAuthUserData() -> AuthUserData?
+    
+    //
+    func checkIfLoggedIn() -> Bool
 }

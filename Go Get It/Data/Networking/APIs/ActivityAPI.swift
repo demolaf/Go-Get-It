@@ -31,10 +31,10 @@ class ActivityAPI {
         newProgram.title = title
         newProgram.activity = activity
         newProgram.activityType = Int16(programActivityType.rawValue)
-        newProgram.sets = Int16(sets)
-        newProgram.reps = Int16(reps)
-        newProgram.restTime = Int16(restTime)
-        newProgram.totalTime = Int16(totalProgramTime)
+        newProgram.sets = Int64(sets)
+        newProgram.reps = Int64(reps)
+        newProgram.restTime = Int64(restTime)
+        newProgram.totalTime = Int64(totalProgramTime)
         try? dataController.viewContext.save()
         
         debugPrint(newProgram)

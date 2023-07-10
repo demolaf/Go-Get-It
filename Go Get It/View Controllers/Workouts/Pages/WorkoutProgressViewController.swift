@@ -23,15 +23,11 @@ class WorkoutProgressViewController: UIViewController {
         super.viewDidLoad()
 
         setup()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
-        setupFetchedResultsController()
+        setupFRC()
     }
     
-    func setupFetchedResultsController() {
+    func setupFRC() {
         let fetchRequest:NSFetchRequest<ProgramMO> = ProgramMO.fetchRequest()
         let predicate = NSPredicate(format: "activity == %@", activity)
         fetchRequest.predicate = predicate

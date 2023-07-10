@@ -13,6 +13,7 @@ class ExercisesListViewController: UIViewController {
     @IBOutlet weak var exercisesMainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var loadingView: LoadingView!
     var exploreRepository: ExploreRepository!
     var bodyParts = [String]()
     
@@ -59,15 +60,34 @@ extension ExercisesListViewController: UITableViewDelegate, UITableViewDataSourc
         setupTableView()
         setupViewAppearance()
         
+        setupLoadingView()
+        
         fetchBodyPartList()
     }
     
     func fetchBodyPartList() {
+        self.loadingView.isHidden = false
         exploreRepository.fetchBodyPartsList { response, error in
+            guard error == nil else {
+                self.tableView.setEmptyView(title: "No Internet Connection", message: "Failed to fetch exercises, try again later")
+                self.loadingView.isHidden = true
+                return
+            }
+            self.tableView.restore()
+            
             self.bodyParts = response
             
             self.tableView.reloadData()
+            
+            self.loadingView.isHidden = true
         }
+    }
+    
+    func setupLoadingView() {
+        loadingView = UINib.init(nibName: "LoadingView", bundle: nil).instantiate(withOwner: self)[0] as? LoadingView
+        loadingView.loadingMessage.text = "Loading body parts for exercises"
+        exercisesMainView.addSubview(loadingView)
+        loadingView.center = tableView.center
     }
     
     private func setupViewAppearance() {

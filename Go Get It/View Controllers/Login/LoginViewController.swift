@@ -10,6 +10,7 @@ import UIKit
 
 enum AuthType: Int {
     case google = 0
+    case apple
     case facebook
 }
 
@@ -38,6 +39,9 @@ class LoginViewController: UIViewController {
                     self.navigateToHome()
                 }
             }
+        case .apple:
+            authenticationRepository.signInWithFacebook()
+            navigateToHome()
         case .facebook:
             authenticationRepository.signInWithFacebook()
             navigateToHome()

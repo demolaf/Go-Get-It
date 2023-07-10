@@ -11,13 +11,27 @@ import FirebaseAuth
 import GoogleSignIn
 
 class AuthenticationRepositoryImpl: AuthenticationRepository {
+    let authAPI: AuthAPI
+    
+    init(authAPI: AuthAPI) {
+        self.authAPI = authAPI
+    }
+    
+    func checkIfLoggedIn() -> Bool {
+        return getAuthUserData() != nil
+    }
+    
+    func getAuthUserData() -> AuthUserData? {
+        return authAPI.fetchAuthData()
+    }
+    
     func signOut() {
         let firebaseAuth = Auth.auth()
         do {
-            //TODO: Remove UserDefaults after logging in
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
+            authAPI.removeAllUserData()
         } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
+            print("Error signing out: %@", signOutError)
         }
     }
     
@@ -71,7 +85,7 @@ class AuthenticationRepositoryImpl: AuthenticationRepository {
                     return
                 }
                 
-                // TODO: Save auth details and persist in-app using UserDefaults
+                self.authAPI.storeAuthData(name: result.user.displayName ?? "", email: result.user.email ?? "")
                 print("email: \(result.user.email ?? "N/A"), \(result.user.displayName ?? "")")
                 DispatchQueue.main.async {
                     completion(true, nil)

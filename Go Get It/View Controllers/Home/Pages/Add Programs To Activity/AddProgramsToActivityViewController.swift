@@ -163,7 +163,7 @@ extension AddProgramsToActivityViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if programsFRC.fetchedObjects?.isEmpty ?? false {
-            tableView.setEmptyView(title: "You haven't created any programs yet.", message: "Create programs using the \"+\" button at the bottom")
+            tableView.setEmptyView(title: "You haven't created any programs yet", message: "Create programs using the \"+\" button at the bottom")
         }
         else {
             tableView.restore()

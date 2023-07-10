@@ -39,8 +39,6 @@ class OnboardingViewController: UIViewController {
     @IBAction func ctaButtonPressed(_ sender: UIButton) {
         let loginVC = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         navigationController?.pushViewController(loginVC, animated: true)
-        
-        
     }
     
     @IBAction func skipButtonPressed(_ sender: UIButton) {

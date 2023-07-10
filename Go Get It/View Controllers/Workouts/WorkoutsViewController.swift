@@ -48,30 +48,6 @@ class WorkoutsViewController: UIViewController {
         
         setup()
     }
-    
-    func setupWorkoutsFetchedResultsController() {
-        let fetchRequest:NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
-        
-        let completedSortDescriptor = NSSortDescriptor(key: "completed", ascending: true)
-        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
-        fetchRequest.sortDescriptors = [completedSortDescriptor, sortDescriptor]
-        
-        workoutsFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: "completed", cacheName: nil)
-        workoutsFRC.delegate = self
-        do {
-            try workoutsFRC.performFetch()
-            
-            //TODO: this is here because if number of sections is set by FRC and there are no sections the function tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) will not be executed
-            if (workoutsFRC.fetchedObjects?.isEmpty ?? false) {
-                workoutsTableView.setEmptyView(title: "No workouts yet.", message: "Create workouts using the \"Start New Activity\" buttons on the home screen")
-            } else {
-                workoutsTableView.restore()
-            }
-            
-        } catch {
-            fatalError("The fetch could not be performed: \(error.localizedDescription)")
-        }
-    }
 }
 
 extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -96,6 +72,29 @@ extension WorkoutsViewController: UITableViewDelegate, UITableViewDataSource {
         setupWorkoutsFetchedResultsController()
         
         workoutsTableView.reloadData()
+    }
+    
+    func setupWorkoutsFetchedResultsController() {
+        let fetchRequest:NSFetchRequest<ActivityMO> = ActivityMO.fetchRequest()
+        
+        let completedSortDescriptor = NSSortDescriptor(key: "completed", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
+        fetchRequest.sortDescriptors = [completedSortDescriptor, sortDescriptor]
+        
+        workoutsFRC = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: activityRepository.dataController.viewContext, sectionNameKeyPath: "completed", cacheName: nil)
+        workoutsFRC.delegate = self
+        do {
+            try workoutsFRC.performFetch()
+            
+            //TODO: this is here because if number of sections is set by FRC and there are no sections the function tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) will not be executed
+            if (workoutsFRC.fetchedObjects?.isEmpty ?? false) {
+                workoutsTableView.setEmptyView(title: "No workouts yet", message: "Create workouts using the \"Start New Activity\" buttons on the home screen")
+            } else {
+                workoutsTableView.restore()
+            }
+        } catch {
+            fatalError("The fetch could not be performed: \(error.localizedDescription)")
+        }
     }
     
     func setupTableView() {
