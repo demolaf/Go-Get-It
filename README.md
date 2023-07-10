@@ -27,13 +27,20 @@ It also has features that help people find new exercises to add to their  routin
 It really is a limitless app that can be as wide as it gets.
 
 </p>
+## Libraries Used
+- Firebase Authentication
+- UIKit
+- Core Animation
+- Persistence: Core Data, UserDefaults
+- URLSession
+- WKWebView
 
 ## Features
-- [x] Keep track of workout routines.
-- [x] Create new workout routines
-- [x] Save tasks as reminders of things to do.
-- [x] Monitor a workout routine progress
-- [x] Search for exercises to add to routines
+- Keep track of workout routines.
+- Create new workout routines
+- Save tasks as reminders of things to do.
+- Monitor a workout routine progress
+- Search for exercises to add to routines
 
 ## Preview
 https://github.com/demolaf/Go-Get-It/assets/48495111/80c7b0b4-cf01-4953-8ed4-3c47dafe5e20
@@ -53,3 +60,5 @@ https://github.com/demolaf/Go-Get-It/assets/48495111/80c7b0b4-cf01-4953-8ed4-3c4
 
 If you need help with the above reference this [article](https://moinulhassan.medium.com/read-variables-from-env-file-to-xcconfig-files-for-different-schemes-in-xcode-3ef977a0eef8)
 
+## Conclusion
+There's still more work to be done on this product which overtime I would be able to complete.
