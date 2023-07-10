@@ -35,6 +35,9 @@ It really is a limitless app that can be as wide as it gets.
 - [x] Monitor a workout routine progress
 - [x] Search for exercises to add to routines
 
+## Preview
+<img src="ReadMeAssets/AppPreview.mp4"/>
+
 ## Screenshots
 <img src="ReadMeAssets/screenshot1.png"/>
 <img src="ReadMeAssets/screenshot2.png"/>
