@@ -1,6 +1,6 @@
 <p align="center">
 
-<img width="200" src="https://raw.githubusercontent.com/demolaf/Go Get It/ReadMeAssets/swiftlogo.png" alt="Swift Logo">
+<img width="200" src="ReadMeAssets/swiftlogo.png" alt="Swift Logo">
 
 </p>
 
