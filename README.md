@@ -1,5 +1,6 @@
 <p align="center">
 
+<img width="200" src="ReadMeAssets/appicon.png" alt="App Icon">
 <img width="200" src="ReadMeAssets/swiftlogo.png" alt="Swift Logo">
 
 </p>
