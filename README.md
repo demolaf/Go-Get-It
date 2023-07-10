@@ -36,7 +36,7 @@ It really is a limitless app that can be as wide as it gets.
 - [x] Search for exercises to add to routines
 
 ## Preview
-<img src="ReadMeAssets/AppPreview.mp4"/>
+https://github.com/demolaf/Go-Get-It/blob/master/ReadMeAssets/AppPreview.mp4
 
 ## Screenshots
 <img src="ReadMeAssets/screenshot1.png"/>
