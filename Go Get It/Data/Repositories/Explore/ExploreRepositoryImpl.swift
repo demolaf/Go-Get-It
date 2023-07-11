@@ -16,7 +16,7 @@ class ExploreRepositoryImpl: ExploreRepository {
     
     let exploreTableListItem: [ExploreListDataModel] = [
         ExploreListDataModel(image: Images.exercisesExploreListImage!, title: "Exercises", description: "Get a list of exciting exercises you could use in your routine"),
-        ExploreListDataModel(image: Images.nutritionExploreListImage!, title: "Nutrition", description: "Get a list of food recipes you could use in your meal plans")
+//        ExploreListDataModel(image: Images.nutritionExploreListImage!, title: "Nutrition", description: "Get a list of food recipes you could use in your meal plans")
     ]
     
     func fetchBodyPartsList(completion: @escaping (ExercisesBodyPartListResponse, Error?) -> Void) {
