@@ -64,4 +64,3 @@ There's still more work to be done on this product which overtime I would be abl
 <!---->
 <!--If you need help with the above reference this [article](https://moinulhassan.medium.com/read-variables-from-env-file-to-xcconfig-files-for-different-schemes-in-xcode-3ef977a0eef8)-->
 <!---->
->>>>>>> 7bd806b (some changes)
