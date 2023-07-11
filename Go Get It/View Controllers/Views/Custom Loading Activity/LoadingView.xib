@@ -13,32 +13,36 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="doS-Fr-qKh">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jIe-fX-Hrm">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="0sn-OW-AyP">
-                            <rect key="frame" x="0.0" y="124" width="300" height="52"/>
-                            <subviews>
-                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vPR-7r-xWZ">
-                                    <rect key="frame" x="140" y="0.0" width="20" height="20"/>
-                                </activityIndicatorView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-hS-nCX">
-                                    <rect key="frame" x="112.66666666666666" y="32" width="74.666666666666657" height="20"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                        </stackView>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="vPR-7r-xWZ">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="20"/>
+                        </activityIndicatorView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-hS-nCX">
+                            <rect key="frame" x="0.0" y="32" width="300" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
-                </stackView>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="wlm-hS-nCX" firstAttribute="leading" secondItem="jIe-fX-Hrm" secondAttribute="leading" id="KCw-Tm-zjZ"/>
+                        <constraint firstItem="vPR-7r-xWZ" firstAttribute="top" secondItem="jIe-fX-Hrm" secondAttribute="top" id="byO-4w-CGb"/>
+                        <constraint firstAttribute="trailing" secondItem="vPR-7r-xWZ" secondAttribute="trailing" id="e3A-yw-HII"/>
+                        <constraint firstItem="vPR-7r-xWZ" firstAttribute="leading" secondItem="jIe-fX-Hrm" secondAttribute="leading" id="gn4-uU-zvI"/>
+                        <constraint firstItem="wlm-hS-nCX" firstAttribute="top" secondItem="vPR-7r-xWZ" secondAttribute="bottom" constant="12" id="kPk-rx-XRz"/>
+                        <constraint firstAttribute="trailing" secondItem="wlm-hS-nCX" secondAttribute="trailing" id="w0w-tJ-Ixu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="doS-Fr-qKh" secondAttribute="trailing" id="9Dy-MK-4xv"/>
-                <constraint firstItem="doS-Fr-qKh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GeT-0C-MMn"/>
-                <constraint firstItem="doS-Fr-qKh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Tux-t5-nqh"/>
-                <constraint firstAttribute="bottom" secondItem="doS-Fr-qKh" secondAttribute="bottom" id="vFh-Fs-mCq"/>
+                <constraint firstItem="jIe-fX-Hrm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="M8a-bD-0hM"/>
+                <constraint firstItem="jIe-fX-Hrm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UGI-qB-xND"/>
+                <constraint firstAttribute="bottom" secondItem="jIe-fX-Hrm" secondAttribute="bottom" id="bsa-3h-K0f"/>
+                <constraint firstAttribute="trailing" secondItem="jIe-fX-Hrm" secondAttribute="trailing" id="gDP-bw-21e"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

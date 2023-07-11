@@ -35,11 +35,6 @@ class CreateProgramsViewController: UIViewController {
         
         //
         if let sheet = sheetPresentationController {
-            sheet.detents = [
-                .custom { context in
-                    return self.formView.frame.height
-                }
-            ]
             sheet.preferredCornerRadius = 30
         }
         
