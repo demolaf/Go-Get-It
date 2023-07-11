@@ -50,16 +50,18 @@ https://github.com/demolaf/Go-Get-It/assets/48495111/80c7b0b4-cf01-4953-8ed4-3c4
 <img src="ReadMeAssets/screenshot1.png"/>
 <img src="ReadMeAssets/screenshot2.png"/>
 
-## Installation
-
-### Setup API Key
-**Go Get It** requires an api key from Rapid API [Exercises DB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb?utm_source=youtube.com%2FJavaScriptMastery&utm_medium=referral&utm_campaign=DevRel) which gives it rich resources of exercises a person can add to their routine.
-
-1. Create a .env file in the root directory of your cloned copy 
-2. Create a Config.xcconfig (Configuration file) in the "Go Get It" directory
-3. You'll need to add a pre-action script to load your .env file into your xcconfig file
-
-If you need help with the above reference this [article](https://moinulhassan.medium.com/read-variables-from-env-file-to-xcconfig-files-for-different-schemes-in-xcode-3ef977a0eef8)
-
 ## Conclusion
 There's still more work to be done on this product which overtime I would be able to complete.
+
+<!--## Installation-->
+<!---->
+<!--### Setup API Key-->
+<!--**Go Get It** requires an api key from Rapid API [Exercises DB API](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb?utm_source=youtube.com%2FJavaScriptMastery&utm_medium=referral&utm_campaign=DevRel) which gives it rich resources of exercises a person can add to their routine.-->
+<!---->
+<!--1. Create a .env file in the root directory of your cloned copy -->
+<!--2. Create a Config.xcconfig (Configuration file) in the "Go Get It" directory-->
+<!--3. You'll need to add a pre-action script to load your .env file into your xcconfig file-->
+<!---->
+<!--If you need help with the above reference this [article](https://moinulhassan.medium.com/read-variables-from-env-file-to-xcconfig-files-for-different-schemes-in-xcode-3ef977a0eef8)-->
+<!---->
+>>>>>>> 7bd806b (some changes)

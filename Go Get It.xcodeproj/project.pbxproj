@@ -984,7 +984,7 @@
 /* Begin XCBuildConfiguration section */
 		7E8652542A3424BF00E6CD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */;
+			baseConfigurationReference = AA485673E05435F41535FD1C /* Pods-Go Get It.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1045,7 +1045,6 @@
 		};
 		7E8652552A3424BF00E6CD03 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7EBEFEE02A5C070B00473ED2 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1100,7 +1099,6 @@
 		};
 		7E8652572A3424BF00E6CD03 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA485673E05435F41535FD1C /* Pods-Go Get It.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
